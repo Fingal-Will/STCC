@@ -1,0 +1,3258 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>天行队骑行日报 · 2026-07-14 至 2026-07-15</title>
+    <style>
+        /* --- 核心变量：微信风格 --- */
+        :root {
+            --wx-green: #07C160;
+            --wx-blue: #576B95;
+            --wx-orange: #FA9D3B;
+            --wx-yellow: #FFC300;
+            --wx-red: #FA5151;
+            --wx-bubble-green: #95EC69;
+            --wx-bg: #EDEDED;
+            --wx-card-bg: #FFFFFF;
+            --wx-text-main: #111111;
+            --wx-text-body: #333333;
+            --wx-text-meta: #B2B2B2;
+            --wx-link: #576B95;
+            --wx-border: #E5E5E5;
+            --tag-bg-blue: rgba(87, 107, 149, 0.1);
+            --tag-bg-green: rgba(7, 193, 96, 0.1);
+            --tag-bg-orange: rgba(250, 157, 59, 0.1);
+            --priority-high: #FA5151;
+            --container-width: 800px;
+            --card-radius: 10px;
+            --spacing-section: 30px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--wx-bg);
+            color: var(--wx-text-main);
+            line-height: 1.6;
+            font-size: 15px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .date {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            background-color: #DDD;
+            color: #FFF;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .meta-dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: var(--wx-card-bg);
+            padding: 15px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .meta-val {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--wx-green);
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .meta-period {
+            font-size: 13px;
+            line-height: 1.35;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        section {
+            margin-bottom: var(--spacing-section);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--wx-green);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--wx-card-bg);
+            border-radius: var(--card-radius);
+            padding: 24px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 热点话题 */
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .topic-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .topic-cat {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--tag-bg-green);
+            color: var(--wx-green);
+            height: fit-content;
+            flex-shrink: 0;
+            white-space: nowrap;
+            margin-left: 12px;
+        }
+
+        .topic-summary {
+            color: var(--wx-text-body);
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .topic-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--wx-border);
+            padding-top: 10px;
+            font-size: 12px;
+        }
+
+        .keyword {
+            color: var(--wx-link);
+            background: var(--tag-bg-blue);
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        .mention-count {
+            color: #999;
+        }
+
+        /* 教程与资源 */
+        .tutorial-type {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            background: var(--tag-bg-blue);
+            color: var(--wx-link);
+        }
+
+        .tutorial-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .tutorial-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tutorial-person {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        .tutorial-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--wx-link);
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .key-points {
+            background: #FAFAFA;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 1px solid #eee;
+        }
+
+        .key-points h4 {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .key-points ul {
+            padding-left: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* 骑行群专项 */
+        .brief-card {
+            border-top: 4px solid var(--wx-green);
+        }
+
+        .brief-summary {
+            font-size: 15px;
+            color: var(--wx-text-body);
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .angle-grid,
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .angle-item,
+        .knowledge-item {
+            background: #FAFAFA;
+            border: 1px solid #EEE;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .angle-title,
+        .knowledge-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--wx-text-main);
+            margin-bottom: 6px;
+        }
+
+        .angle-content,
+        .knowledge-summary {
+            font-size: 14px;
+            color: #444;
+            text-align: justify;
+        }
+
+        .tomorrow-watch {
+            margin-top: 16px;
+            background: var(--tag-bg-green);
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+
+        .brief-closing {
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-left: 4px solid var(--wx-orange);
+            background: var(--tag-bg-orange);
+            color: #444;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .tomorrow-watch h4,
+        .checkin-highlights h4 {
+            font-size: 13px;
+            color: var(--wx-green);
+            margin-bottom: 6px;
+        }
+
+        .tomorrow-watch ul,
+        .checkin-highlights ul,
+        .knowledge-tips {
+            padding-left: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .weekend-card {
+            border-top: 4px solid var(--wx-orange);
+        }
+
+        .weekend-summary {
+            color: var(--wx-text-body);
+            font-size: 15px;
+            text-align: justify;
+            margin-bottom: 18px;
+        }
+
+        .weekend-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .weekend-stat {
+            background: #FAFAFA;
+            border: 1px solid #EEE;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .weekend-stat-value {
+            display: block;
+            color: var(--wx-orange);
+            font-size: 24px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .weekend-stat-label {
+            display: block;
+            color: #777;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .weekend-group + .weekend-group {
+            border-top: 1px solid var(--wx-border);
+            margin-top: 18px;
+            padding-top: 18px;
+        }
+
+        .weekend-group-title {
+            color: var(--wx-text-main);
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .weekend-group-copy {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .weekend-name-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .weekend-name {
+            background: var(--tag-bg-green);
+            color: #078F49;
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 13px;
+        }
+
+        .weekend-story-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .weekend-story {
+            display: grid;
+            grid-template-columns: minmax(90px, 120px) 1fr;
+            gap: 12px;
+            background: #FAFAFA;
+            border: 1px solid #EEE;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .weekend-story-name {
+            color: var(--wx-link);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .weekend-story-copy {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .checkin-hero {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .checkin-count-box {
+            background: var(--wx-green);
+            color: #FFF;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .checkin-count {
+            display: block;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .checkin-count-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .checkin-summary-text {
+            font-size: 15px;
+            color: #333;
+            text-align: justify;
+        }
+
+        .checkin-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkin-person {
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 10px;
+            padding: 12px;
+            background: #FAFAFA;
+            border: 1px solid #EEE;
+            border-radius: 8px;
+        }
+
+        .checkin-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .checkin-person-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .checkin-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--wx-link);
+        }
+
+        .checkin-time {
+            font-size: 12px;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .checkin-activity,
+        .checkin-note {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .checkin-note {
+            color: #777;
+            margin-top: 3px;
+        }
+
+        .metric-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .metric-pill,
+        .knowledge-meta,
+        .focus-pill {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .metric-pill {
+            background: var(--tag-bg-green);
+            color: var(--wx-green);
+            padding: 2px 7px;
+        }
+
+        .checkin-highlights {
+            margin-top: 16px;
+            background: #FAFAFA;
+            border-radius: 8px;
+            padding: 12px 14px;
+            border: 1px dashed #DDD;
+        }
+
+        .knowledge-meta-row,
+        .focus-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .knowledge-meta {
+            background: var(--tag-bg-blue);
+            color: var(--wx-link);
+            padding: 2px 7px;
+        }
+
+        .focus-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .focus-pill {
+            background: #F2F3F5;
+            color: #555;
+            padding: 4px 8px;
+        }
+
+        /* 重要消息 */
+        .msg-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .msg-main {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .msg-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 11px;
+        }
+
+        .msg-sender {
+            font-weight: 600;
+            color: var(--wx-link);
+            font-size: 14px;
+        }
+
+        .msg-time {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .priority-badge {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: #fff;
+            background: var(--priority-high);
+        }
+
+        .msg-full {
+            margin-top: 12px;
+            padding: 10px;
+            background: #F7F7F7;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* 有趣对话 */
+        .wx-chat-wrapper {
+            background: #F5F5F5;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #E5E5E5;
+        }
+
+        .wx-msg-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .wx-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .wx-msg-content {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .wx-name-time {
+            font-size: 12px;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .wx-bubble {
+            background-color: #FFFFFF;
+            padding: 10px 14px;
+            border-radius: 4px;
+            position: relative;
+            font-size: 15px;
+            color: #000;
+            line-height: 1.5;
+            border: 1px solid #EDEDED;
+        }
+
+        .wx-bubble::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 12px;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-right: 6px solid #FFFFFF;
+        }
+
+        .dialogue-highlight {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #B59352;
+            padding: 20px 20px 25px;
+            background: linear-gradient(135deg, #FFFCF7 0%, #FFF5DD 100%);
+            border: 1px solid #EED697;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(235, 190, 100, 0.15);
+        }
+
+        .dialogue-highlight::before {
+            content: "✦";
+            font-size: 20px;
+            color: #DAA520;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            padding: 0 8px;
+            border-radius: 10px;
+            border: 1px solid #EED697;
+        }
+
+        .dialogue-highlight span {
+            display: block;
+            margin-top: 10px;
+            font-family: "Georgia", serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 17px;
+            color: #9C6F12;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+
+        /* 问答 */
+        .qa-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .qa-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .icon-q {
+            background: var(--wx-link);
+        }
+
+        .icon-a {
+            background: var(--wx-green);
+        }
+
+        .qa-meta {
+            font-size: 12px;
+            color: #444;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .qa-person {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qa-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        .best-badge {
+            background: #FFC300;
+            color: #fff;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        .qa-text {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .qa-tags {
+            margin-top: 6px;
+        }
+
+        .qa-tag {
+            font-size: 11px;
+            background: #EEE;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 4px;
+        }
+
+        /* 数据可视化 */
+        .analytics-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .heat-row {
+            margin-bottom: 15px;
+        }
+
+        .heat-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #F0F0F0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* 话唠榜 */
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+            padding-bottom: 5px;
+        }
+
+        .rank-item:first-child {
+            padding-top: 5px;
+        }
+
+        .rank-badge {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+
+        .rank-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .rank-1 {
+            background-color: #FFD200;
+        }
+
+        .rank-2 {
+            background-color: #BDBDBD;
+        }
+
+        .rank-3 {
+            background-color: #CD7F32;
+        }
+
+        .rank-content {
+            flex-grow: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rank-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .rank-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .rank-count {
+            font-size: 14px;
+            color: var(--wx-green);
+            font-weight: 500;
+        }
+
+        .rank-meta-row {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .meta-label-inline {
+            color: #999;
+            margin-right: 10px;
+            flex-shrink: 0;
+            min-width: 45px;
+        }
+
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .tag-trait {
+            background-color: rgba(255, 77, 79, 0.1);
+            color: #FF4D4F;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .tag-word {
+            background-color: #F0F2F5;
+            color: #596B88;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* 熬夜冠军 */
+        .owl-card {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            color: #fff;
+            padding: 25px;
+            border-radius: var(--card-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .owl-card::after {
+            content: "🌙";
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 100px;
+            opacity: 0.1;
+        }
+
+        .owl-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .owl-crown {
+            font-size: 32px;
+            margin-right: 15px;
+        }
+
+        .owl-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            font-size: 18px;
+            margin-right: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .owl-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .owl-title {
+            font-size: 12px;
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+
+        .owl-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .owl-stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .owl-stat-label {
+            font-size: 11px;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .owl-stat-val {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .owl-msg {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 6px;
+            font-style: italic;
+            font-size: 13px;
+            opacity: 0.9;
+            border-left: 3px solid #FFD700;
+        }
+
+        .owl-note {
+            font-size: 11px;
+            opacity: 0.5;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        /* 词云 */
+        .word-cloud-section {
+            background: var(--wx-card-bg);
+            border-radius: var(--card-radius);
+            padding: 24px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-section);
+        }
+
+        .cloud-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cloud-wordcloud {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background: radial-gradient(circle at center, #F9FAFC 0%, #FFFFFF 80%);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #F0F0F0;
+        }
+
+        .cloud-word {
+            position: absolute;
+            white-space: nowrap;
+            line-height: 1;
+            cursor: default;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: -apple-system, "PingFang SC", sans-serif;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.02);
+        }
+
+        .cloud-word:hover {
+            z-index: 100;
+            transform: scale(1.2) !important;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            filter: brightness(1.1);
+        }
+
+        .cloud-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            padding-top: 15px;
+            border-top: 1px dashed #E5E5E5;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            margin-right: 6px;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #DDD;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+
+        .disclaimer {
+            margin-top: 10px;
+            font-style: italic;
+            transform: scale(0.9);
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --spacing-section: 24px;
+            }
+
+            .container {
+                padding: 24px 12px;
+            }
+
+            .card,
+            .word-cloud-section {
+                padding: 16px;
+            }
+
+            .meta-dashboard {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .meta-item:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .weekend-story,
+            .checkin-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .checkin-count-box {
+                max-width: 120px;
+            }
+
+            .rank-item {
+                display: grid;
+                grid-template-columns: 28px 40px minmax(0, 1fr);
+                align-items: start;
+                column-gap: 10px;
+                padding: 16px 0;
+            }
+
+            .rank-badge {
+                margin: 0;
+            }
+
+            .rank-avatar {
+                width: 40px;
+                height: 40px;
+                margin: 0;
+            }
+
+            .rank-header {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                align-items: start;
+                gap: 8px;
+            }
+
+            .rank-name {
+                overflow-wrap: anywhere;
+            }
+
+            .rank-count {
+                white-space: nowrap;
+                font-size: 12px;
+            }
+
+            .rank-meta-row {
+                display: block;
+            }
+
+            .meta-label-inline {
+                display: block;
+                min-width: 0;
+                margin: 0 0 5px;
+            }
+
+            .tags-wrapper {
+                gap: 6px;
+            }
+
+            .tag-trait,
+            .tag-word {
+                padding: 3px 7px;
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .cloud-wordcloud {
+                height: clamp(280px, 85vw, 340px);
+            }
+
+            .cloud-legend {
+                gap: 12px;
+            }
+
+            .cloud-word:hover {
+                transform: rotate(var(--word-rotate, 0deg)) !important;
+                filter: none;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="container">
+        <header>
+            <h1>🐌【天行队】🐌日报</h1>
+            <div class="date">2026-07-14 至 2026-07-15</div>
+            <div class="meta-dashboard">
+                <div class="meta-item">
+                    <span class="meta-val">2938</span>
+                    <span class="meta-label">总消息数</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-val">53</span>
+                    <span class="meta-label">活跃用户</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-val meta-period">07-14 16:29 至 07-15 17:26</span>
+                    <span class="meta-label">统计周期</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. 天行队专项：本期群聊总览 -->
+        
+        <section>
+            <div class="section-title">今日车队简报</div>
+            <div class="card brief-card">
+                
+                <div class="brief-summary">从 7 月 14 日 16:29 到 7 月 15 日 17:26，53 位成员贡献 2938 条消息。群聊先复盘妙峰山前七“验货”，再把赛事保障车聊成带冰可乐、虾片和全套睡眠音效的夜班包厢；清晨转场戒台寺早鸟，训练、打卡、照片、裤衩、头盔、SL9 和碗组盖同时开工。午饭时间黄瓜炒鸡蛋与江西菜短暂接管频道，傍晚又被 T、P、1、TNT、tank 五套字母体系包围。腿负责输出，嘴负责扩容，最后全群得出阶段性结论：撒娇的男人最好命。</div>
+                
+                
+                <div class="angle-grid">
+                    
+                    <div class="angle-item">
+                        <div class="angle-title">11 人交出 11 条训练记录</div>
+                        <div class="angle-content">两戒、正反戒、通勤、8×4 与训练截图陆续报到。有人体感舒服，有人通勤骑不动，也有人用“280瓦+甚至hr到不了180”给自己申请了“4w爬坡手”新工牌。</div>
+                    </div>
+                    
+                    <div class="angle-item">
+                        <div class="angle-title">今日名场面：保障车变移动宿舍</div>
+                        <div class="angle-content">原本只想研究赛事定点补给和返程，聊着聊着开始审核打呼噜、脚臭、放屁、磨牙与梦游。车还没订，夜间生态已经完成全员压力测试。</div>
+                    </div>
+                    
+                    <div class="angle-item">
+                        <div class="angle-title">装备事故调查局</div>
+                        <div class="angle-content">裤衩团购、连体服、头盔、袜子、SL9 和碗组盖轮流上桌。骑行装备的基本规律再次出现：缺的那一件，永远最会卡住情绪价值。</div>
+                    </div>
+                    
+                    <div class="angle-item">
+                        <div class="angle-title">早鸟不是骑完，是拍完</div>
+                        <div class="angle-content">戒台寺早鸟带回一百多张照片。摄影秘诀被总结为“多拍点，总有能用的”，快门负责广撒网，模特负责从里面捞自己。</div>
+                    </div>
+                    
+                    <div class="angle-item">
+                        <div class="angle-title">精神状态：字母课临时加开</div>
+                        <div class="angle-content">T、P、1、TNT 和 tank 在十分钟内完成跨学科会师。有人在讲角色，有人在讲炸药，有人在讲承伤，知识点很多，考试范围没有。</div>
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="tomorrow-watch">
+                    <h4>明日关注</h4>
+                    <ul>
+                        
+                        <li>明早拟约“旱河路—香山环岛”，讨论集合时间为 06:20-06:25、速度为 33-35；仍以出发前群内最终消息为准。</li>
+                        
+                        <li>骨灰林往返被估算约 12 分钟，属于可选加餐；是否执行、谁参加，出发前再确认。</li>
+                        
+                        <li>PLJ？拟尝试 8×3、108% 起步、每组加 2W、组间恢复 6 分钟；这是待执行方案，不计入本期完成记录。</li>
+                        
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </section>
+        
+
+        <!-- 2. 天行队专项：周末骑行 -->
+        
+
+        <!-- 3. 天行队专项：训练打卡台 -->
+        
+        
+        
+        <section>
+            <div class="section-title">训练打卡台</div>
+            <div class="card">
+                <div class="checkin-hero">
+                    <div class="checkin-count-box">
+                        <span class="checkin-count">11</span>
+                        <span class="checkin-count-label">人打卡</span>
+                    </div>
+                    <div class="checkin-summary-text">
+                        本期共有 11 位成员留下 11 条有效训练记录。清晨从两戒、戒台寺和通勤线持续回传，训练截图与文字记录并行；有人舒服收工，有人骑不动也照样交作业。打卡区今天没有统一剧本，只有统一原则：骑过、练过、如实说过。
+                    </div>
+                </div>
+
+                
+                <div class="checkin-list">
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/1PZuydoUficq2X6bU4jlTxV74Nk243yTzRfYBVwb1QTPdcw5yOAiaA7FrnIwqbMFAxrMMJdD5AbVWibTyA8vpbn447dcQiberscTE5ssGd7revyXqCeRRZtWUh51LGsiaSY5l/132" alt="👐  婧头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">👐</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">👐  婧</span>
+                                <span class="checkin-time">07-15 07:08</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">清晨训练记录到账，晨练队率先开门。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/oJXRiatlzvWsPp9H556rMQ5BU85aqMLLia1csjtC1mFDibs34b6JyXNjTMzXH4a4S2pw8SrrxfbrRTsj7hH6M2olSpemicSrA4tZ8M1zicPeD1iayTrXxKDT5uIhnx7Dexq1hD/132" alt="刘鹏头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">刘</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">刘鹏</span>
+                                <span class="checkin-time">07-15 07:22</span>
+                            </div>
+                            
+                            <div class="checkin-activity">两戒卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">一张训练图配上“两戒卡”，路线说明短，执行距离长。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/37GibYytnq8iaz2gfecsfMo3ic1KLbqHrC2jL3WhiawBicGPrUU1dEnEb3QJsbZ9KXVEOIIFAR20nSZLoE61WMfDqVgic8LpBeSIE7mscqicTZ4UKgLeYxKIeibeAJWuQicjZ11ml/132" alt="屋足先生头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">屋</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">屋足先生</span>
+                                <span class="checkin-time">07-15 07:40</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">早鸟训练记录入场，作业交得比通勤高峰早。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/ZkcFsQtOOKAw2lYNBQ9a7hUjolHZrtKWkfRELQ1Fqq7iarUUx4OFnjBDCbBsRBic8KUnptpDGo166Dy6zqarSKfr4aKBfGjdFy9EPScvibKdogFgRcJMs0ZVEJH556IguQT/132" alt="archer头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">a</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">archer</span>
+                                <span class="checkin-time">07-15 07:56</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">训练截图准时落地，八点前打卡阵容继续扩编。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/hb4THHeibnF17eGicVSyga4w8jmXJ6W2BGicm6K9FXwnVESxliaLkOfOUibtBSJJXetNv49zKGn0Y0ia9s4mnfXgREO85AMCX0esWMnxDGVictYqkN4MibL3iaCMkEhCOwZiaE5WEEpHo5FrQdvRgHDyAAX3lvXw/132" alt="月夜枫头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">月</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">月夜枫</span>
+                                <span class="checkin-time">07-15 08:27</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">原话：“卡，今天体感挺舒服。”舒服是体感，训练是事实。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">SOD</span>
+                                <span class="checkin-time">07-15 08:34</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            <div class="metric-list">
+                                
+                                <span class="metric-pill">280W+</span>
+                                
+                                <span class="metric-pill">心率未到180</span>
+                                
+                            </div>
+                            
+                            
+                            <div class="checkin-note">原话：“以后叫我4w爬坡手。”工牌先发，后续表现继续年审。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/vPB6DWia7BObzicQGZEyiaY67gusN5YbRuaowgZibLzcj2FC6ibUjRkRIqOGCIiczu4cExBaX0hZR0QzLNp0YoVkP9tib65BTUEiaiabZGFXzoDD8jUXibxFM9agDLIiccQKC6TroJf/132" alt="CaptainMiao🐱头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">C</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">CaptainMiao🐱</span>
+                                <span class="checkin-time">07-15 08:36</span>
+                            </div>
+                            
+                            <div class="checkin-activity">正反戒极限通勤卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">正戒、反戒、通勤三项合并报账，路线像折返跑，名字像极限项目。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/2CRaJS21EHibAMsI6FFejeiciagLv3oq3nd8XYNke8AjTWdyic6LmvandTacibE9Kmf7ozjrZH998SEoKJlVvwfyKfk6geZIs3qjuicEu7zII5L4ge9hbSu5XsvowFYfs2OYzT13cTLnUpZtxxG5x19qzqdw/132" alt="回忆的摩天轮头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">回</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">回忆的摩天轮</span>
+                                <span class="checkin-time">07-15 08:46</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">照片与训练记录同步到达，晨间打卡队完成又一次并线。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/I3fEsxUeM98uFibdRic5Jcr4IOya43rzJcAugqZ6BoXkrVfFpjdD3XQQly3QWIpxuzb5ytdKqT4IZslPN5YvpmWoSuaCLYMlMKuQL7GYspHibOuZIGfOCCMpneQfW0S9v062wDGNEdJ5aU8qHKw3uO9ibA/132" alt="佛系少女头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">佛</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">佛系少女</span>
+                                <span class="checkin-time">07-15 09:00</span>
+                            </div>
+                            
+                            <div class="checkin-activity">通勤骑不动卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">骑不动归骑不动，通勤和打卡一个都没少，佛系只是昵称。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/Srx71TAunhwM6ThpbHEbkyz2AV7I9avWibE9h2V0cLVI6YzxGtp7vTRprWiaZFOU3UWeOicXIbSkyNT4F2ydsFWdg/132" alt="王剑头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">王</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">王剑</span>
+                                <span class="checkin-time">07-15 09:53</span>
+                            </div>
+                            
+                            <div class="checkin-activity">训练截图打卡</div>
+                            
+                            
+                            
+                            
+                            
+                            <div class="checkin-note">上午训练记录入库，恢复话题刚聊完，作业本人随后出现。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-person">
+                        
+    <div class="avatar checkin-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/qw9P375Ux93ibk2y2nibgfV7cRPmyhG4AViasRrsvNKibliaiauXmP5oG7YibXYEnL6puNu2w8CzTyCC0KP7s7a2K3JdtcYmmrCBGJELuLsMIwficek/132" alt="罗任隆头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">罗</span>
+        
+    </div>
+                        <div>
+                            <div class="checkin-person-header">
+                                <span class="checkin-name">罗任隆</span>
+                                <span class="checkin-time">07-15 11:38</span>
+                            </div>
+                            
+                            <div class="checkin-activity">8×4卡</div>
+                            
+                            
+                            
+                            
+                            <div class="metric-list">
+                                
+                                <span class="metric-pill">含热身放松共2.5小时</span>
+                                
+                                <span class="metric-pill">水2800ml</span>
+                                
+                                <span class="metric-pill">宝矿力600ml</span>
+                                
+                            </div>
+                            
+                            
+                            <div class="checkin-note">吃了 1 根咖啡因胶和 2 根黑胶，另有 1 根黑胶没吃；补给记录详细到足以单独开库存表。</div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+                
+                <div class="checkin-highlights">
+                    <h4>打卡亮点</h4>
+                    <ul>
+                        
+                        <li>07:08-09:00 是本期打卡高峰，早鸟、两戒、通勤与训练截图连续抵达。</li>
+                        
+                        <li>SOD 报告 280W+ 且心率未到 180；月夜枫报告体感舒服，数据和感受都各自坐稳。</li>
+                        
+                        <li>罗任隆的 8×4 含前后有氧共 2.5 小时，补水与能量胶均有明确记录，适合结合体重变化和个人出汗率继续复盘。</li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- 4. 天行队专项：骑行知识与训练总结 -->
+        
+        <section>
+            <div class="section-title">训练与骑行知识</div>
+            <div class="knowledge-grid">
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">长台子别让坐骨独自值三小时班</div>
+                        <div class="topic-cat">室内训练</div>
+                    </div>
+                    <div class="knowledge-summary">连续台子训练缺少路面变化，固定坐姿更容易积累局部压力。群内经验是每 15-30 分钟主动站起活动一次，不必等到明显难受才处理。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-14 18:17-18:39</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：Nina文欧、粒粒、numb、月夜枫、刘鹏</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>站起时可尝试升一到两档、略降踏频，逐步找到稳定功率的节奏。</li>
+                        
+                        <li>十几秒的功率小波动通常不值得用坐姿硬扛，先保证动作和舒适度。</li>
+                        
+                        <li>若坐骨持续不适，也要检查骑行裤垫状态、尺码贴合和坐垫设定。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">热身的终点不是分钟数，是肌肉上线</div>
+                        <div class="topic-cat">训练准备</div>
+                    </div>
+                    <div class="knowledge-summary">强度课前约 20 分钟可作为常见参考，但最终仍要看当天状态与肌肉是否被充分激活。十几到二十分钟不是全员统一闹钟。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-15 11:43-11:47</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：Katherine、archer、罗任隆、SOD、我是昭昭啊</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>从轻松区间逐步抬升，不要从静止状态直接跳进目标强度。</li>
+                        
+                        <li>关注腿部响应、呼吸和主观感觉，状态偏慢时适当延长。</li>
+                        
+                        <li>热身也会消耗补给与水分，炎热天气要把它计入总训练。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">课表做完还有劲，也别现场续杯</div>
+                        <div class="topic-cat">负荷管理</div>
+                    </div>
+                    <div class="knowledge-summary">面对完成课表后是否追加 2-4 组的问题，SOD 的原话是：“半组都不加，强度都算好的。”重点是优先保住每周两次质量课与连续数周的稳定完成。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-15 14:49-15:04</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：我是昭昭啊、SOD、屋足先生</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>单次有余力不等于恢复预算充足，追加量可能影响后续训练。</li>
+                        
+                        <li>先连续完成既定 build 周期，再依据恢复与表现调整总量。</li>
+                        
+                        <li>训练效果来自可持续积累，不来自每次都把剩余电量清零。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">最近没劲，先判断是腿、脑还是恢复账单</div>
+                        <div class="topic-cat">疲劳恢复</div>
+                    </div>
+                    <div class="knowledge-summary">群内讨论建议先检查 HRV、静息心率、睡眠与进食，再区分腿部糖原不足、心理压力或累积疲劳。若进入减量周，训练量也要一起下调，轻松区间同样会累积负荷。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-15 09:47-09:54</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：陶圣凡、SOD、刘鹏、Katherine</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>记录 HRV、静息心率和主观疲劳的趋势，不用单日数字直接定案。</li>
+                        
+                        <li>吃饭正常但腿仍持续没劲时，回看总训练量与前几天补给。</li>
+                        
+                        <li>减量不只是取消强度，时长和总骑量也要同步调整。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">3.4 升补水记录，先算汗再下结论</div>
+                        <div class="topic-cat">高温补给</div>
+                    </div>
+                    <div class="knowledge-summary">罗任隆记录 2.5 小时内喝水 2800ml、宝矿力 600ml，合计约 3.4L。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-15 11:35-11:57</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：罗任隆、王剑、SOD、刘鹏</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>训练前后称重，可帮助估算净液体变化与个人汗率。</li>
+                        
+                        <li>高温大量出汗时同时关注电解质，不要只比较谁喝得多。</li>
+                        
+                        <li>若补水量长期明显高于同类训练，记录气温、湿度和体重变化再调整。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+                <div class="card knowledge-item">
+                    <div class="topic-header">
+                        <div class="knowledge-title">待执行课表：8×3 从 108% 起步</div>
+                        <div class="topic-cat">训练计划</div>
+                    </div>
+                    <div class="knowledge-summary">PLJ？拟尝试 8×3：108% 起步，每组增加 2W，组间恢复 6 分钟。该内容是群内给出的下一次尝试方案，截至本期结束尚未回传完成结果。</div>
+                    <div class="knowledge-meta-row">
+                        
+                        <span class="knowledge-meta">讨论时间：07-15 14:44-15:11</span>
+                        
+                        
+                        <span class="knowledge-meta">相关成员：PLJ？、SOD、翊无敌</span>
+                        
+                    </div>
+                    
+                    
+                    <ul class="knowledge-tips">
+                        
+                        <li>先按 8×3 执行，不把原本讨论过的 8×4 当作已完成目标。</li>
+                        
+                        <li>如无法维持计划功率，应记录从第几组开始下降以及主观感受。</li>
+                        
+                        <li>训练后再根据完成质量决定后续课表，不提前追加组数。</li>
+                        
+                    </ul>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="focus-overview">
+                
+                <span class="focus-pill">训练方法：109条</span>
+                
+                <span class="focus-pill">安全恢复：64条</span>
+                
+                <span class="focus-pill">路线路况：44条</span>
+                
+                <span class="focus-pill">装备设定：31条</span>
+                
+                <span class="focus-pill">赛事骑游：14条</span>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- 5. 本期讨论热点 -->
+        
+        <section>
+            <div class="section-title">今日群聊讨论焦点</div>
+            <div class="topics-container">
+                
+                <div class="card">
+                    <div class="topic-header">
+                        <div class="topic-title">训练嘴硬榜：说着一般，数据先抬头</div>
+                        <div class="topic-cat">训练与恢复</div>
+                    </div>
+                    <div class="topic-summary">从妙峰山前七如何跟、阈值踏频和早鸟状态，聊到 8×4、短间歇、减量周与补给。有人说“今儿体感一般”，转头交出 280W+；群里对“一般”的定义，明显需要单独校准。</div>
+                    <div class="topic-footer">
+                        <div class="keywords">
+                            
+                            <span class="keyword">前七</span>
+                            
+                            <span class="keyword">强度</span>
+                            
+                            <span class="keyword">减量周</span>
+                            
+                            <span class="keyword">补给</span>
+                            
+                        </div>
+                        <span class="mention-count">提及次数：115</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="topic-header">
+                        <div class="topic-title">裤衩、头盔与 SL9：装备频道全天营业</div>
+                        <div class="topic-cat">装备采购</div>
+                    </div>
+                    <div class="topic-summary">梭织裤衩团购从尺码聊到坐垫，早鸟照片又带出袜子、头盔和联赛服；随后 SL9 装车被碗组盖卡住。装备已经齐了九成，剩下一成专门负责制造全部焦虑。</div>
+                    <div class="topic-footer">
+                        <div class="keywords">
+                            
+                            <span class="keyword">裤衩团购</span>
+                            
+                            <span class="keyword">头盔</span>
+                            
+                            <span class="keyword">SL9</span>
+                            
+                            <span class="keyword">碗组盖</span>
+                            
+                        </div>
+                        <span class="mention-count">提及次数：104</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="topic-header">
+                        <div class="topic-title">黄瓜炒鸡蛋申请进入骑行教材</div>
+                        <div class="topic-cat">饮食跑题</div>
+                    </div>
+                    <div class="topic-summary">黄瓜炒鸡蛋、西红柿、馒头、江西菜与减脂餐先后接管群聊。每次讨论训练补给，最终都能抵达“今天吃什么”；路线可能临时改，饭点从不掉队。</div>
+                    <div class="topic-footer">
+                        <div class="keywords">
+                            
+                            <span class="keyword">黄瓜炒鸡蛋</span>
+                            
+                            <span class="keyword">西红柿</span>
+                            
+                            <span class="keyword">馒头</span>
+                            
+                            <span class="keyword">江西菜</span>
+                            
+                        </div>
+                        <span class="mention-count">提及次数：90</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="topic-header">
+                        <div class="topic-title">保障车初心：不吃苦，还得带冰可乐</div>
+                        <div class="topic-cat">路线赛事与保障车</div>
+                    </div>
+                    <div class="topic-summary">从首钢园到崇礼的赛事保障方案，讨论了定点补给、返程、车费与装车安全，随后生活配置逐渐膨胀到冰可乐、虾片和睡觉。后援车的初心很明确：把苦留在赛道，别带回车里。</div>
+                    <div class="topic-footer">
+                        <div class="keywords">
+                            
+                            <span class="keyword">赛事保障</span>
+                            
+                            <span class="keyword">定点补给</span>
+                            
+                            <span class="keyword">返程</span>
+                            
+                            <span class="keyword">夜间生态</span>
+                            
+                        </div>
+                        <span class="mention-count">提及次数：68</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="topic-header">
+                        <div class="topic-title">出片秘诀：快门先完成百公里</div>
+                        <div class="topic-cat">摄影出片</div>
+                    </div>
+                    <div class="topic-summary">戒台寺早鸟带回一百多张照片，宋宇的策略是“多拍点 总有能用的”，月夜枫补充“出片的秘诀就是狂按快门”。骑手在爬坡，快门在刷里程。</div>
+                    <div class="topic-footer">
+                        <div class="keywords">
+                            
+                            <span class="keyword">早鸟</span>
+                            
+                            <span class="keyword">宋宇</span>
+                            
+                            <span class="keyword">照片</span>
+                            
+                            <span class="keyword">快门</span>
+                            
+                        </div>
+                        <span class="mention-count">提及次数：20</span>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- 路线、装备与资源 -->
+        
+
+        <!-- 车队广播 -->
+        
+        <section>
+            <div class="section-title">车队广播</div>
+            
+            <div class="card">
+                <div class="msg-header">
+                    <div class="msg-main">
+                        <span class="priority-badge">优先级：高</span>
+                        
+    <div class="avatar msg-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/mbQ16o3QOYELia4n9FkvP1WiaT8KiahpyCrtp7PdPMGyYQgOc9Mpl3MyhFP0akKAHgYqzmPy1ia9icPj3UfWPv5A8iaXsaL0rsRa2sibh8xR1CjqKr1DorKgZffTjM0icPVP7h4ica7OkJNkxkTk4dEVAaElo0A/132" alt="考拉7😈头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">考</span>
+        
+    </div>
+                        <span class="msg-sender">考拉7😈</span>
+                        <span class="msg-time">07-15 09:22-09:27</span>
+                    </div>
+                    <span class="notice-mark">NOTICE</span>
+                </div>
+                <div style="font-weight:500; margin-bottom:5px;">明早旱河路约骑仍待出发前确认。</div>
+                <div class="msg-full">
+                    <strong>群聊原文：</strong><br>
+                    讨论方案为“旱河路 香山环岛620-625”，速度“33-35”，预计骑到 07:30 左右；集合、路线和参与人员以出发前群内最终消息为准。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="msg-header">
+                    <div class="msg-main">
+                        <span class="priority-badge">优先级：高</span>
+                        
+    <div class="avatar msg-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                        <span class="msg-sender">SOD</span>
+                        <span class="msg-time">07-15 09:48-09:53</span>
+                    </div>
+                    <span class="notice-mark">NOTICE</span>
+                </div>
+                <div style="font-weight:500; margin-bottom:5px;">减量周要同时减少强度和总骑量。</div>
+                <div class="msg-full">
+                    <strong>群聊原文：</strong><br>
+                    先检查 HRV、静息心率和吃饭情况，再区分疲劳来源。原话：“做个减量周”“骑量也要减”“二区也是有累积疲劳的”。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="msg-header">
+                    <div class="msg-main">
+                        <span class="priority-badge">优先级：中</span>
+                        
+    <div class="avatar msg-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                        <span class="msg-sender">SOD</span>
+                        <span class="msg-time">07-15 14:48-15:05</span>
+                    </div>
+                    <span class="notice-mark">NOTICE</span>
+                </div>
+                <div style="font-weight:500; margin-bottom:5px;">PLJ？的下一次课表为待执行方案。</div>
+                <div class="msg-full">
+                    <strong>群聊原文：</strong><br>
+                    尝试 8×3，108% 起步，每组增加 2W，组间恢复 6 分钟。截至本期结束未回传完成结果。
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="msg-header">
+                    <div class="msg-main">
+                        <span class="priority-badge">优先级：中</span>
+                        
+    <div class="avatar msg-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/mbQ16o3QOYELia4n9FkvP1WiaT8KiahpyCrtp7PdPMGyYQgOc9Mpl3MyhFP0akKAHgYqzmPy1ia9icPj3UfWPv5A8iaXsaL0rsRa2sibh8xR1CjqKr1DorKgZffTjM0icPVP7h4ica7OkJNkxkTk4dEVAaElo0A/132" alt="考拉7😈头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">考</span>
+        
+    </div>
+                        <span class="msg-sender">考拉7😈</span>
+                        <span class="msg-time">07-15 09:31-09:36</span>
+                    </div>
+                    <span class="notice-mark">NOTICE</span>
+                </div>
+                <div style="font-weight:500; margin-bottom:5px;">早晚绕圈仍建议携带车灯。</div>
+                <div class="msg-full">
+                    <strong>群聊原文：</strong><br>
+                    讨论晚间骑行时的原话：“带上踏实……或者你至少得有个尾灯。”路线熟悉也不能替代可见性。
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <!-- 车队频道名场面 -->
+        
+        <section>
+            <div class="section-title">车队频道名场面</div>
+            
+            <div class="card">
+                <div class="dialogue-topic">
+                    <span>相关话题：# 保障车入住资格审核</span>
+                    <small>DIALOGUE</small>
+                </div>
+
+                <div class="wx-chat-wrapper">
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">SOD 07-14 17:12</div>
+                            <div class="wx-bubble">到时候睡觉打呼噜的，脚臭的，不让上车</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/Srx71TAunhwM6ThpbHEbkyz2AV7I9avWibE9h2V0cLVI6YzxGtp7vTRprWiaZFOU3UWeOicXIbSkyNT4F2ydsFWdg/132" alt="王剑头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">王</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">王剑 07-14 17:13</div>
+                            <div class="wx-bubble">那我没问题，我放屁</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/wI3Nr62y0K6u9njiavzjQsKjic8wiaYACOelksGgNMuibHibO4uHLVOKkX3dtKI6XXfWVoovldbpwicp6t7ThFgxUADn7s04lqTK970YPftCfqmRuYDVghJsGT8wDW6th4icvsE/132" alt="我是昭昭啊头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">我</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">我是昭昭啊 07-14 17:13</div>
+                            <div class="wx-bubble">那我没问题 我既打呼噜又脚臭</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/Srx71TAunhwM6ThpbHEbkyz2AV7I9avWibE9h2V0cLVI6YzxGtp7vTRprWiaZFOU3UWeOicXIbSkyNT4F2ydsFWdg/132" alt="王剑头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">王</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">王剑 07-14 17:13</div>
+                            <div class="wx-bubble">来个磨牙的</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/EEASaTibzTmrrv0e4oOSibQknvZLLbL5W9bl2vYLQtT7p9Mky77mYce05ChQnIyibdUP8ZoWZ9aFdhpaHMx3AnBc7YoMR1gQbXAQ7JeibFUWwu9OH6PHTUmbrd5bgAibImglD/132" alt="舒克头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">舒</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">舒克 07-14 17:14</div>
+                            <div class="wx-bubble">我梦游</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="dialogue-highlight">
+                    亮点金句：<span>"原本是赛事保障车，五句话以后已经具备移动宿舍全部夜间音轨。"</span>
+                </div>
+                
+            </div>
+            
+            <div class="card">
+                <div class="dialogue-topic">
+                    <span>相关话题：# 摄影师的成功率算法</span>
+                    <small>DIALOGUE</small>
+                </div>
+
+                <div class="wx-chat-wrapper">
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/vPB6DWia7BObzicQGZEyiaY67gusN5YbRuaowgZibLzcj2FC6ibUjRkRIqOGCIiczu4cExBaX0hZR0QzLNp0YoVkP9tib65BTUEiaiabZGFXzoDD8jUXibxFM9agDLIiccQKC6TroJf/132" alt="CaptainMiao🐱头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">C</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">CaptainMiao🐱 07-15 09:07</div>
+                            <div class="wx-bubble">骑个早鸟100多张照片，SY好能拍[鼓掌]</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/lPZHXul7aJXN4QonzPlKL5YS9NlQTEBWo1coC2iaicVia16EscndRAXtkUbY9GchtC8PibadoWm3Q3uSD8NG43KbMALyUNUPc9Yu25UWajhLHvGpwNA3FialZumHvCsP8f4qq/132" alt="宋宇头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">宋</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">宋宇 07-15 09:07</div>
+                            <div class="wx-bubble">多拍点 总有能用的[奸笑]</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/hb4THHeibnF17eGicVSyga4w8jmXJ6W2BGicm6K9FXwnVESxliaLkOfOUibtBSJJXetNv49zKGn0Y0ia9s4mnfXgREO85AMCX0esWMnxDGVictYqkN4MibL3iaCMkEhCOwZiaE5WEEpHo5FrQdvRgHDyAAX3lvXw/132" alt="月夜枫头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">月</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">月夜枫 07-15 09:08</div>
+                            <div class="wx-bubble">出片的秘诀就是狂按快门[奸笑]</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="dialogue-highlight">
+                    亮点金句：<span>"概率论正式进入骑行摄影：样本量够大，头像迟早能挑到。"</span>
+                </div>
+                
+            </div>
+            
+            <div class="card">
+                <div class="dialogue-topic">
+                    <span>相关话题：# 字母课为何突然讲到炸药</span>
+                    <small>DIALOGUE</small>
+                </div>
+
+                <div class="wx-chat-wrapper">
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/zn7a1Wn64OtuOPd22tvOPoZVI6wibzRjvPIiaVia0qjHcaeSl6TC9qFVFIGu8GzycnScPLrW0C2kM8V18IdqPGxgVrFboR2wMXJDmeFicM6kfusjaLCs8XmKc3VzCKzH6wWY/132" alt="🐱猫猫鱼🦈头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">🐱</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">🐱猫猫鱼🦈 07-15 17:12</div>
+                            <div class="wx-bubble">t是啥</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">SOD 07-15 17:12</div>
+                            <div class="wx-bubble">TNT</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/oJXRiatlzvWsPp9H556rMQ5BU85aqMLLia1csjtC1mFDibs34b6JyXNjTMzXH4a4S2pw8SrrxfbrRTsj7hH6M2olSpemicSrA4tZ8M1zicPeD1iayTrXxKDT5uIhnx7Dexq1hD/132" alt="刘鹏头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">刘</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">刘鹏 07-15 17:13</div>
+                            <div class="wx-bubble">t不是主要承受伤害的吗</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/SD2CgOLDsWJ0cmKorib5CHI6iaeSjrutSguQ01aamcDywEXrQNmMsdYy3EEN5TqSFzmhicX0Ggt43FZP62GOjfiaEJxQ14YyEL3plbKyzAy0bnqYPTfbQAE3qcjp7jTfKJKUqUMduyq6ZWZpPBrV4hurGQ/132" alt="numb头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">n</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">numb 07-15 17:13</div>
+                            <div class="wx-bubble">那特么是tank</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="dialogue-highlight">
+                    亮点金句：<span>"问题只有一个字母，答案横跨角色分类、炸药和游戏职业。"</span>
+                </div>
+                
+            </div>
+            
+            <div class="card">
+                <div class="dialogue-topic">
+                    <span>相关话题：# 群聊结尾突然嘤里嘤气</span>
+                    <small>DIALOGUE</small>
+                </div>
+
+                <div class="wx-chat-wrapper">
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/drTqEficLibsRqBTBIuQXugdLZmiaRHTDGfRQMZAD8pOJyPsIaJN0GhPykWo1LVDJ6JNBqOswjYCMJm2mj3TsaOP6g4LUoS7BKWd8X4HeXHuricP2FGBS4UiacnSlm7FISm1P/132" alt="阿童木头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">阿</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">阿童木 07-15 17:21</div>
+                            <div class="wx-bubble">没事，那我晒着吧</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/I3fEsxUeM98uFibdRic5Jcr4IOya43rzJcAugqZ6BoXkrVfFpjdD3XQQly3QWIpxuzb5ytdKqT4IZslPN5YvpmWoSuaCLYMlMKuQL7GYspHibOuZIGfOCCMpneQfW0S9v062wDGNEdJ5aU8qHKw3uO9ibA/132" alt="佛系少女头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">佛</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">佛系少女 07-15 17:22</div>
+                            <div class="wx-bubble">怎么嘤里嘤气的</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/hzKutKuy0jPBwE8JrGdujKbGibia8zsAfJF0C0g6AeN1lypHV5d8ebZ2CeV0sJicxkicAqdlLTaFmsBpwBjIMgFYXPZlD5BibmC8SSib5c6og4bDe5vicO2VVtCeFaVyFUUicpvdElU3TbtpibTr5Xadls3RHicA/132" alt="守望者lemon头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">守</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">守望者lemon 07-15 17:22</div>
+                            <div class="wx-bubble">我一个大直男，都听出茶味儿了</div>
+                        </div>
+                    </div>
+                    
+                    <div class="wx-msg-row">
+                        
+    <div class="avatar wx-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/SD2CgOLDsWJ0cmKorib5CHI6iaeSjrutSguQ01aamcDywEXrQNmMsdYy3EEN5TqSFzmhicX0Ggt43FZP62GOjfiaEJxQ14YyEL3plbKyzAy0bnqYPTfbQAE3qcjp7jTfKJKUqUMduyq6ZWZpPBrV4hurGQ/132" alt="numb头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">n</span>
+        
+    </div>
+                        <div class="wx-msg-content">
+                            <div class="wx-name-time">numb 07-15 17:22</div>
+                            <div class="wx-bubble">撒娇的男人最好命</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="dialogue-highlight">
+                    亮点金句：<span>"训练群的收尾没有拉伸，只有语气词进入恢复区。"</span>
+                </div>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- 骑行问答 -->
+        
+        <section>
+            <div class="section-title">骑行问答站</div>
+            
+            <div class="card">
+                <div class="qa-box">
+                    <div class="qa-icon icon-q">Q</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/7nibQ4uENicKcwASszRxS5gfJCibXhNgPUPPeSEzmLuwM9hBKGtjY7LMTSsoggewKULPBHORJibLRjD6RSJPGgE0iaTA0bF0tl8AZ0tMnSBBRQQ21EJjoQlSPISdgU8FDHG7G/132" alt="Nina文欧头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">N</span>
+        
+    </div>
+                                <span>Nina文欧</span>
+                            </span>
+                            <span>07-14 18:17-18:29</span>
+                        </div>
+                        <div class="qa-text">连续骑 3 小时台子坐骨不适，站起来又担心功率不稳，怎么处理？</div>
+                        
+                        <div class="qa-tags">
+                            
+                            <span class="qa-tag">室内训练</span>
+                            
+                            <span class="qa-tag">坐姿</span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="qa-box qa-answer">
+                    <div class="qa-icon icon-a">A</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <span class="avatar-fallback">粒</span>
+        
+    </div>
+                                <span>粒粒/numb/月夜枫/刘鹏</span>
+                            </span>
+                            <div>
+                                <span class="best-badge">最佳回答</span>
+                                <span>07-14 18:17-18:39</span>
+                            </div>
+                        </div>
+                        <div class="qa-text">不要等到明显难受才动。可每 15-30 分钟主动站起活动，尝试升一到两档并略降踏频；十几秒的小波动不必过度追求完全抹平，同时检查骑行裤和坐垫设定。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="qa-box">
+                    <div class="qa-icon icon-q">Q</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/ib88VIGYvqINh4icDsP2NTRed93XQQn69X6piaUYQ581DxVbibPES7tjPp5k0U5xWM0u9yDf3ic3OZcqhJibibBkrM91uC6IvKepYStIm3fYm2sALJicFydM13RKYdTuNJLLxaaj/132" alt="陶圣凡头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">陶</span>
+        
+    </div>
+                                <span>陶圣凡</span>
+                            </span>
+                            <span>07-15 09:47</span>
+                        </div>
+                        <div class="qa-text">最近怎么休息都没劲，心理上又不讨厌骑车，该先排查什么？</div>
+                        
+                        <div class="qa-tags">
+                            
+                            <span class="qa-tag">疲劳</span>
+                            
+                            <span class="qa-tag">恢复</span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="qa-box qa-answer">
+                    <div class="qa-icon icon-a">A</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                                <span>SOD</span>
+                            </span>
+                            <div>
+                                <span class="best-badge">最佳回答</span>
+                                <span>07-15 09:49-09:53</span>
+                            </div>
+                        </div>
+                        <div class="qa-text">先看 HRV、静息心率、睡眠和进食，再区分腿部能量不足、心理压力或累积疲劳。若做减量周，总骑量也要减少，因为二区同样会累积负荷。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="qa-box">
+                    <div class="qa-icon icon-q">Q</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/bf8hDYBnXaIrwWtvibl5OlP9SJSqJxkk06kHiczJpCVehBKExHN9DRtjGqyJuqAJzutyql96HQ0N7WRGqJa8ziax6zrhiaVxXwFrP3WvJuzwgcx5JYy5MNBP7x1IHAUcwpaOLE6ibFGJtE34qUtU7glARCg/132" alt="PLJ？头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">P</span>
+        
+    </div>
+                                <span>PLJ？</span>
+                            </span>
+                            <span>07-15 14:47-15:03</span>
+                        </div>
+                        <div class="qa-text">今晚继续旧课表还是调整？8×3 的恢复时间怎么设？</div>
+                        
+                        <div class="qa-tags">
+                            
+                            <span class="qa-tag">间歇</span>
+                            
+                            <span class="qa-tag">待执行</span>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="qa-box qa-answer">
+                    <div class="qa-icon icon-a">A</div>
+                    <div class="qa-content">
+                        <div class="qa-meta">
+                            <span class="qa-person">
+                                
+    <div class="avatar qa-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                                <span>SOD</span>
+                            </span>
+                            <div>
+                                <span class="best-badge">最佳回答</span>
+                                <span>07-15 14:48-15:04</span>
+                            </div>
+                        </div>
+                        <div class="qa-text">先尝试 8×3，108% 起步，每组增加 2W，组间恢复 6 分钟。该方案当时尚未执行，应以实际完成质量再决定后续调整。</div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <!-- 车队数据仪表 -->
+        <section>
+            <div class="section-title">车队数据仪表</div>
+            <div class="analytics-container">
+
+                <!-- 6.1 话题热度 -->
+                
+                <div class="card">
+                    <h3 class="analytics-title">话题分布</h3>
+                    
+                    <div class="heat-row">
+                        <div class="heat-info">
+                            <span>训练与恢复</span>
+                            <span>115条 (29%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"
+                                style="width: 29%; background: var(--wx-green);">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="heat-row">
+                        <div class="heat-info">
+                            <span>装备采购</span>
+                            <span>104条 (26%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"
+                                style="width: 26%; background: var(--wx-blue);">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="heat-row">
+                        <div class="heat-info">
+                            <span>饮食跑题</span>
+                            <span>90条 (23%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"
+                                style="width: 23%; background: var(--wx-orange);">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="heat-row">
+                        <div class="heat-info">
+                            <span>路线赛事与保障车</span>
+                            <span>68条 (17%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"
+                                style="width: 17%; background: var(--wx-red);">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="heat-row">
+                        <div class="heat-info">
+                            <span>摄影出片</span>
+                            <span>20条 (5%)</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"
+                                style="width: 5%; background: var(--wx-yellow);">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+                <!-- 6.2 话唠榜 -->
+                <div class="card">
+                    <div class="subsection-title">话唠榜前十名</div>
+                    <div class="rank-list">
+                        
+                        <div class="rank-item">
+                            <div class="rank-badge rank-1">1</div>
+                            
+    <div class="avatar rank-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/c7QiaVtukvo2fUTL1w6LcuvtEZZiceI8R8dn0b8hDCpUcp8TQA7TwkMdnJ5vwWEdQh7z8icsricEriaN6ogx9bCCALQ/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">S</span>
+        
+    </div>
+                            <div class="rank-content">
+                                <div class="rank-header">
+                                    <span class="rank-name">SOD</span>
+                                    <span class="rank-count">359 条消息</span>
+                                </div>
+                                
+                                <div class="rank-meta-row">
+                                    <span class="meta-label-inline">特点:</span>
+                                    <div class="tags-wrapper">
+                                        
+                                        <span class="tag-trait">训练调度</span>
+                                        
+                                        <span class="tag-trait">路线后勤</span>
+                                        
+                                        <span class="tag-trait">数据复盘</span>
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="rank-item">
+                            <div class="rank-badge rank-2">2</div>
+                            
+    <div class="avatar rank-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/mbQ16o3QOYELia4n9FkvP1WiaT8KiahpyCrtp7PdPMGyYQgOc9Mpl3MyhFP0akKAHgYqzmPy1ia9icPj3UfWPv5A8iaXsaL0rsRa2sibh8xR1CjqKr1DorKgZffTjM0icPVP7h4ica7OkJNkxkTk4dEVAaElo0A/132" alt="考拉7😈头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">考</span>
+        
+    </div>
+                            <div class="rank-content">
+                                <div class="rank-header">
+                                    <span class="rank-name">考拉7😈</span>
+                                    <span class="rank-count">214 条消息</span>
+                                </div>
+                                
+                                <div class="rank-meta-row">
+                                    <span class="meta-label-inline">特点:</span>
+                                    <div class="tags-wrapper">
+                                        
+                                        <span class="tag-trait">早鸟发车</span>
+                                        
+                                        <span class="tag-trait">装备审美</span>
+                                        
+                                        <span class="tag-trait">群聊接梗</span>
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="rank-item">
+                            <div class="rank-badge rank-3">3</div>
+                            
+    <div class="avatar rank-avatar">
+        
+        <img src="https://wx.qlogo.cn/mmhead/ver_1/vPB6DWia7BObzicQGZEyiaY67gusN5YbRuaowgZibLzcj2FC6ibUjRkRIqOGCIiczu4cExBaX0hZR0QzLNp0YoVkP9tib65BTUEiaiabZGFXzoDD8jUXibxFM9agDLIiccQKC6TroJf/132" alt="CaptainMiao🐱头像" referrerpolicy="no-referrer" loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="avatar-fallback" style="display:none;">C</span>
+        
+    </div>
+                            <div class="rank-content">
+                                <div class="rank-header">
+                                    <span class="rank-name">CaptainMiao🐱</span>
+                                    <span class="rank-count">185 条消息</span>
+                                </div>
+                                
+                                <div class="rank-meta-row">
+                                    <span class="meta-label-inline">特点:</span>
+                                    <div class="tags-wrapper">
+                                        
+                                        <span class="tag-trait">保障车询价</span>
+                                        
+                                        <span class="tag-trait">照片主角</span>
+                                        
+                                        <span class="tag-trait">气氛担当</span>
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- 6.3 熬夜冠军 -->
+                
+
+            </div>
+        </section>
+
+        <!-- 今日群聊热词图 -->
+        
+        <section class="word-cloud-section">
+            <div class="section-title">今日群聊热词图</div>
+            <div class="cloud-container">
+                <div class="cloud-wordcloud" id="word-cloud">
+                    <!-- Words will be injected by JS -->
+                </div>
+
+                <div class="cloud-legend">
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #07C160;"></span>
+                        <span>高频词</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #576B95;"></span>
+                        <span>话题词</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #FA9D3B;"></span>
+                        <span>情感词</span>
+                    </div>
+                </div>
+            </div>
+            <script>
+                (function() {
+                    const palette = [
+                        '#07C160',
+                        '#576B95',
+                        '#FA9D3B',
+                        '#FA5151',
+                        '#07C160',
+                        '#576B95',
+                        '#078F49',
+                        '#9C6F12'
+                    ];
+                    const words = [
+                        
+                        {
+                            text: "\u8bad\u7ec3\u4e0e\u6062\u590d",
+                            size: 50,
+                            color: "#405F5B",
+                            rotate: -8,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u88c5\u5907\u91c7\u8d2d",
+                            size: 46,
+                            color: "#506C67",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u996e\u98df\u8dd1\u9898",
+                            size: 42,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u51cf\u91cf\u5468",
+                            size: 38,
+                            color: "#89938F",
+                            rotate: 6,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u8865\u7ed9",
+                            size: 38,
+                            color: "#405F5B",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u5f3a\u5ea6",
+                            size: 38,
+                            color: "#506C67",
+                            rotate: -8,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u524d\u4e03",
+                            size: 38,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u8bad\u7ec3\u65b9\u6cd5",
+                            size: 37,
+                            color: "#A86F60",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u88e4\u8869\u56e2\u8d2d",
+                            size: 36,
+                            color: "#405F5B",
+                            rotate: 6,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u7897\u7ec4\u76d6",
+                            size: 36,
+                            color: "#506C67",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "SL9",
+                            size: 36,
+                            color: "#71817D",
+                            rotate: -8,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u5934\u76d4",
+                            size: 36,
+                            color: "#89938F",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u8def\u7ebf\u8d5b\u4e8b\u4e0e\u4fdd\u969c\u8f66",
+                            size: 36,
+                            color: "#405F5B",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u9ec4\u74dc\u7092\u9e21\u86cb",
+                            size: 33,
+                            color: "#506C67",
+                            rotate: 6,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u897f\u7ea2\u67ff",
+                            size: 33,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u6c5f\u897f\u83dc",
+                            size: 33,
+                            color: "#A86F60",
+                            rotate: -8,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u9992\u5934",
+                            size: 33,
+                            color: "#405F5B",
+                            rotate: 0,
+                            weight: "800"
+                        },
+                        
+                        {
+                            text: "\u8d5b\u4e8b\u4fdd\u969c",
+                            size: 29,
+                            color: "#506C67",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u5b9a\u70b9\u8865\u7ed9",
+                            size: 29,
+                            color: "#71817D",
+                            rotate: 6,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u591c\u95f4\u751f\u6001",
+                            size: 29,
+                            color: "#89938F",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8fd4\u7a0b",
+                            size: 29,
+                            color: "#405F5B",
+                            rotate: -8,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u5b89\u5168\u6062\u590d",
+                            size: 28,
+                            color: "#506C67",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8def\u7ebf\u8def\u51b5",
+                            size: 24,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u88c5\u5907\u8bbe\u5b9a",
+                            size: 22,
+                            color: "#A86F60",
+                            rotate: 6,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u6444\u5f71\u51fa\u7247",
+                            size: 21,
+                            color: "#405F5B",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u7167\u7247",
+                            size: 19,
+                            color: "#506C67",
+                            rotate: -8,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u65e9\u9e1f",
+                            size: 19,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u5feb\u95e8",
+                            size: 19,
+                            color: "#89938F",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u5b8b\u5b87",
+                            size: 19,
+                            color: "#405F5B",
+                            rotate: 6,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8d5b\u4e8b\u9a91\u6e38",
+                            size: 18,
+                            color: "#506C67",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u9ad8\u6e29\u8865\u7ed9",
+                            size: 16,
+                            color: "#71817D",
+                            rotate: -8,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8d1f\u8377\u7ba1\u7406",
+                            size: 16,
+                            color: "#A86F60",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8bad\u7ec3\u8ba1\u5212",
+                            size: 16,
+                            color: "#405F5B",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u8bad\u7ec3\u51c6\u5907",
+                            size: 16,
+                            color: "#506C67",
+                            rotate: 6,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u75b2\u52b3\u6062\u590d",
+                            size: 16,
+                            color: "#71817D",
+                            rotate: 0,
+                            weight: "650"
+                        },
+                        
+                        {
+                            text: "\u5ba4\u5185\u8bad\u7ec3",
+                            size: 16,
+                            color: "#89938F",
+                            rotate: -8,
+                            weight: "650"
+                        },
+                        
+                    ];
+
+                    const container = document.getElementById('word-cloud');
+                    let resizeTimer = null;
+
+                    function renderWordCloud() {
+                        const containerWidth = Math.floor(container.clientWidth);
+                        const containerHeight = Math.floor(container.clientHeight);
+                        if (!containerWidth || !containerHeight) return;
+
+                        container.replaceChildren();
+
+                        const edgePadding = containerWidth < 480 ? 14 : 10;
+                        const fontScale = containerWidth < 520
+                            ? Math.max(0.68, containerWidth / 520)
+                            : 1;
+                        const maxWords = containerWidth < 360
+                            ? 36
+                            : containerWidth < 480
+                                ? 42
+                                : words.length;
+                        const centerX = containerWidth / 2;
+                        const centerY = containerHeight / 2;
+                        const placedRects = [];
+                        const sortedWords = [...words]
+                            .sort((a, b) => b.size - a.size)
+                            .slice(0, maxWords);
+
+                        sortedWords.forEach((word, index) => {
+                            const el = document.createElement('span');
+                            const fontSize = Math.max(14, Math.round(word.size * fontScale));
+                            const rotation = `${word.rotate}deg`;
+
+                            el.textContent = word.text;
+                            el.className = 'cloud-word';
+                            el.style.fontSize = `${fontSize}px`;
+                            el.style.color = palette[index % palette.length];
+                            el.style.fontWeight = word.weight;
+                            el.style.transform = `rotate(${rotation})`;
+                            el.style.transformOrigin = 'center center';
+                            el.style.setProperty('--word-rotate', rotation);
+                            el.style.visibility = 'hidden';
+                            container.appendChild(el);
+
+                            const width = el.offsetWidth;
+                            const height = el.offsetHeight;
+                            const rad = Math.abs(word.rotate * Math.PI / 180);
+                            const boundingW = width * Math.cos(rad) + height * Math.sin(rad);
+                            const boundingH = width * Math.sin(rad) + height * Math.cos(rad);
+                            let angle = 0;
+                            let radius = 0;
+                            const step = 0.2;
+                            let placed = false;
+
+                            for (let i = 0; i < 1500; i++) {
+                                const x = centerX + radius * Math.cos(angle) - boundingW / 2;
+                                const y = centerY + radius * Math.sin(angle) - boundingH / 2;
+                                const rect = {
+                                    left: x,
+                                    top: y,
+                                    right: x + boundingW,
+                                    bottom: y + boundingH
+                                };
+
+                                const inside = (
+                                    rect.left >= edgePadding &&
+                                    rect.right <= containerWidth - edgePadding &&
+                                    rect.top >= edgePadding &&
+                                    rect.bottom <= containerHeight - edgePadding
+                                );
+                                const collision = placedRects.some((other) => !(
+                                    rect.right + 2 < other.left ||
+                                    rect.left - 2 > other.right ||
+                                    rect.bottom + 2 < other.top ||
+                                    rect.top - 2 > other.bottom
+                                ));
+
+                                if (inside && !collision) {
+                                    el.style.left = `${x + boundingW / 2 - width / 2}px`;
+                                    el.style.top = `${y + boundingH / 2 - height / 2}px`;
+                                    el.style.visibility = 'visible';
+                                    placedRects.push(rect);
+                                    placed = true;
+                                    break;
+                                }
+
+                                radius += inside ? 1 : 2;
+                                angle += step;
+                            }
+
+                            if (!placed) el.remove();
+                        });
+                    }
+
+                    function scheduleWordCloudRender() {
+                        window.clearTimeout(resizeTimer);
+                        resizeTimer = window.setTimeout(renderWordCloud, 80);
+                    }
+
+                    window.requestAnimationFrame(renderWordCloud);
+                    window.addEventListener('resize', scheduleWordCloudRender, { passive: true });
+
+                    if ('ResizeObserver' in window) {
+                        const observer = new ResizeObserver(scheduleWordCloudRender);
+                        observer.observe(container);
+                    }
+
+                    if (document.fonts && document.fonts.ready) {
+                        document.fonts.ready.then(renderWordCloud);
+                    }
+                })();
+            </script>
+        </section>
+        
+
+        <!-- 天行队日报页脚 -->
+        <footer>
+            <p>车队数据源：🐌【天行队】🐌群聊记录</p>
+            
+            <p>骑行观察周期：07-14 16:29 至 07-15 17:26</p>
+            <p class="disclaimer">骑行提示：路线、天气、装备与训练安排请结合当天实际情况；如有内容不当或侵权问题，请联系管理员处理。</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
