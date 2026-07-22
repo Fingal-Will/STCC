@@ -163,6 +163,15 @@
             overflow-wrap: anywhere;
         }
 
+        .latest-introduction {
+            max-width: 820px;
+            margin: 12px 0 0;
+            color: var(--surface);
+            font-size: 15px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
         .latest-period {
             margin: 10px 0 0;
             color: var(--green-soft);
@@ -1278,6 +1287,12 @@
 
             .latest-title {
                 font-size: 21px;
+            }
+
+            .latest-introduction {
+                margin-top: 10px;
+                font-size: 14px;
+                line-height: 1.65;
             }
 
             .latest-period {
