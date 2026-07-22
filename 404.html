@@ -99,13 +99,17 @@
         <p class="code">404 · PAGE NOT FOUND</p>
         <h1>这一页不在骑行路线里</h1>
         <p>地址可能已更新，返回首页可以继续查看全部天行队聊天总结。</p>
-        <a id="home-link" href="./">返回总结首页</a>
+        <a id="home-link" href="./index.html">返回总结首页</a>
     </main>
     <script>
         const homeLink = document.getElementById("home-link");
         const pathParts = window.location.pathname.split("/").filter(Boolean);
         const isProjectPage = window.location.hostname.endsWith("github.io");
-        homeLink.href = isProjectPage && pathParts.length ? `/${pathParts[0]}/` : "/";
+        if (isProjectPage && pathParts.length) {
+            homeLink.href = `/${pathParts[0]}/`;
+        } else if (window.location.protocol !== "file:") {
+            homeLink.href = "/";
+        }
     </script>
 </body>
 </html>

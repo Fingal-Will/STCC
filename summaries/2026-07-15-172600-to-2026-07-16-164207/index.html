@@ -52,6 +52,41 @@
             padding: 40px 20px;
         }
 
+        .report-toolbar {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .report-home-link {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--wx-link);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .report-home-link:hover,
+        .report-home-link:focus-visible {
+            color: var(--wx-green);
+        }
+
+        .report-home-link:focus-visible,
+        .report-footer-link:focus-visible {
+            outline: 3px solid rgba(7, 193, 96, 0.24);
+            outline-offset: 3px;
+        }
+
+        .report-nav-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -1166,13 +1201,45 @@
             transform: scale(0.9);
         }
 
+        .report-footer-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .report-footer-link {
+            width: min(100%, 320px);
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 6px;
+            background: var(--wx-green);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(7, 193, 96, 0.2);
+        }
+
+        .report-footer-link:hover,
+        .report-footer-link:focus-visible {
+            background: #06AD56;
+        }
+
         @media (max-width: 600px) {
             :root {
                 --spacing-section: 24px;
             }
 
             .container {
-                padding: 24px 12px;
+                padding: 12px 12px 24px;
+            }
+
+            .report-toolbar {
+                margin-bottom: 18px;
             }
 
             .card,
@@ -1275,6 +1342,13 @@
     
 
     <div class="container">
+        <nav class="report-toolbar" aria-label="日报导航">
+            <a class="report-home-link" href="../../index.html">
+                <span class="report-nav-icon" aria-hidden="true">←</span>
+                <span>总结首页</span>
+            </a>
+        </nav>
+
         <header>
             <h1>🐌【天行队】🐌日报</h1>
             <div class="date">2026-07-16</div>
@@ -3536,6 +3610,13 @@
             <p>骑行观察周期：07-15 17:26 至 07-16 16:40</p>
             <p class="disclaimer">骑行提示：路线、天气、装备与训练安排请结合当天实际情况；如有内容不当或侵权问题，请联系管理员处理。</p>
         </footer>
+
+        <nav class="report-footer-nav" aria-label="总结归档导航">
+            <a class="report-footer-link" href="../../index.html">
+                <span>查看全部聊天总结</span>
+                <span class="report-nav-icon" aria-hidden="true">→</span>
+            </a>
+        </nav>
 
     </div>
 </body>
