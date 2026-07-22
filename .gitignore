@@ -1,2 +1,7 @@
 .DS_Store
 **/.DS_Store
+README.private.md
+README.real.md
+PRIVATE_README.md
+.private/
+private/
