@@ -63,6 +63,9 @@
         }
 
         .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 30;
             background: var(--paper);
             border-bottom: 1px solid var(--line);
         }
@@ -125,7 +128,8 @@
         }
 
         .nav-link:hover,
-        .nav-link:focus-visible {
+        .nav-link:focus-visible,
+        .nav-link.is-current {
             background: var(--sky);
             color: var(--blue);
             outline: none;
@@ -1306,7 +1310,7 @@
             .header-nav {
                 width: 100%;
                 display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 4px;
                 padding-top: 8px;
                 border-top: 1px solid var(--line);

@@ -33,6 +33,9 @@
             margin: 0 auto;
         }
         .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 30;
             background: var(--paper);
             border-bottom: 1px solid var(--line);
         }
@@ -45,15 +48,27 @@
         }
         .brand h1 { margin: 0; font-size: 19px; }
         .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
-        .home-link {
-            min-height: 42px;
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link {
+            min-height: 36px;
             display: inline-flex;
             align-items: center;
-            padding: 8px 12px;
-            border: 1px solid var(--green);
+            padding: 7px 12px;
             border-radius: 6px;
-            color: var(--green);
-            font-weight: 700;
+            color: var(--body);
+            font-size: 14px;
+            font-weight: 650;
+        }
+        .nav-link:hover,
+        .nav-link:focus-visible,
+        .nav-link.is-current {
+            background: #d8def7;
+            color: var(--blue);
+            outline: none;
         }
         main { padding: 28px 0 60px; }
         .intro {
@@ -187,8 +202,30 @@
         }
         @media (max-width: 600px) {
             .page-shell { width: min(100% - 24px, var(--content-width)); }
-            .header-inner { min-height: 60px; }
+            .header-inner {
+                min-height: 60px;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px 0;
+            }
             .brand p { display: none; }
+            .header-nav {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 4px;
+                padding-top: 8px;
+                border-top: 1px solid var(--line);
+            }
+            .nav-link {
+                min-width: 0;
+                min-height: 34px;
+                justify-content: center;
+                padding: 6px 3px;
+                font-size: 12px;
+                text-align: center;
+                white-space: nowrap;
+            }
             main { padding-top: 14px; }
             .intro { padding: 22px 18px; }
             .intro h2 { font-size: 22px; }
