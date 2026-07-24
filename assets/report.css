@@ -190,7 +190,7 @@
             border-radius: 2px;
         }
 
-        .report-details .section-title {
+        .report-chapter .section-title {
             margin-bottom: 12px;
             padding-bottom: 0;
             border-bottom: 0;
@@ -198,7 +198,7 @@
             font-weight: 720;
         }
 
-        .report-details .section-title::before {
+        .report-chapter .section-title::before {
             width: 4px;
             height: 17px;
             flex-basis: 4px;
@@ -505,17 +505,16 @@
             overflow-wrap: anywhere;
         }
 
-        .report-details {
+        .report-chapter {
             margin-bottom: var(--spacing-section);
             border: 0;
             background: transparent;
         }
 
-        .report-details > summary {
+        .report-chapter-head {
             min-height: 68px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 12px;
             padding: 13px 18px 13px 14px;
             border: 1px solid var(--wx-border);
@@ -523,38 +522,14 @@
             border-radius: 8px;
             background: var(--wx-card-bg);
             color: var(--wx-text-main);
-            cursor: pointer;
-            list-style: none;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
-        .report-details > summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .report-details > summary::after {
-            content: '+';
-            flex: 0 0 auto;
-            color: var(--wx-green);
-            font-size: 24px;
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        .report-details[open] > summary {
-            background: #F7FCF9;
-            border-color: rgba(7, 193, 96, 0.34);
-        }
-
-        .report-details[open] > summary::after {
-            content: '−';
-        }
-
-        .report-details-body {
+        .report-chapter-body {
             padding: 18px 0 2px;
         }
 
-        .report-details-body > section:last-child {
+        .report-chapter-body > section:last-child {
             margin-bottom: 16px;
         }
 
@@ -1515,11 +1490,11 @@
                 padding: 14px;
             }
 
-            .report-details > summary {
+            .report-chapter-head {
                 padding: 13px 14px;
             }
 
-            .report-details-body {
+            .report-chapter-body {
                 padding: 14px 0 2px;
             }
 
