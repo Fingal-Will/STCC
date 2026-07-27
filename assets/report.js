@@ -4,14 +4,14 @@
     if (!container || !dataNode) return;
 
     const palette = [
-        "#07C160",
-        "#576B95",
-        "#FA9D3B",
-        "#FA5151",
-        "#07C160",
-        "#576B95",
-        "#078F49",
-        "#9C6F12"
+        "#0F6B57",
+        "#2858C7",
+        "#D68A22",
+        "#D94F4F",
+        "#123B32",
+        "#4E6E64",
+        "#8A5E1D",
+        "#24473E"
     ];
     const words = JSON.parse(dataNode.textContent || "[]");
     let resizeTimer = null;

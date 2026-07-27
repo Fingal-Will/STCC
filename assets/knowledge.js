@@ -3,6 +3,8 @@
             const filters = Array.from(document.querySelectorAll(".filter"));
             const items = Array.from(document.querySelectorAll(".knowledge-item"));
             const empty = document.getElementById("knowledge-empty");
+            const resultCount = document.getElementById("knowledge-result-count");
+            const clearButton = document.getElementById("knowledge-clear");
             let category = "";
 
             function applyFilters() {
@@ -15,6 +17,8 @@
                     if (matches) visible += 1;
                 });
                 empty.hidden = visible !== 0;
+                resultCount.textContent = visible ? `显示 ${visible} 条知识` : "显示 0 条知识";
+                clearButton.hidden = !category && !query;
             }
 
             search.addEventListener("input", applyFilters);
@@ -27,4 +31,14 @@
                     applyFilters();
                 });
             });
+            clearButton.addEventListener("click", () => {
+                category = "";
+                search.value = "";
+                filters.forEach((item, index) => {
+                    item.setAttribute("aria-pressed", String(index === 0));
+                });
+                applyFilters();
+                search.focus();
+            });
+            applyFilters();
         })();

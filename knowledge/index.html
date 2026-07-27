@@ -6,15 +6,20 @@
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light">
 <title>天行队骑行知识库</title>
-<link rel="stylesheet" href="../assets/knowledge.css">
+<link rel="icon" type="image/webp" href="../assets/stcc-logo.webp">
+<link rel="stylesheet" href="../assets/knowledge.css?v=5a1e6b0d34e5">
 </head>
-<body>
+<body class="page-knowledge">
+<a class="skip-link" href="#main-content">跳到主要内容</a>
 <header class="site-header">
 <div class="page-shell header-inner">
-<div class="brand">
-<h1>天行队骑行知识库</h1>
-<p>43 条跨期知识沉淀</p>
+<a class="brand" href="../home/index.html" aria-label="天行队聊天总结首页">
+<img class="brand-mark" src="../assets/stcc-logo.webp" alt="STCC 蜗牛车队标志">
+<div>
+<h1 class="brand-name">天行队骑行知识</h1>
+<p class="brand-meta">43 条跨期知识沉淀</p>
 </div>
+</a>
 <nav class="header-nav" aria-label="页面导航">
 <a class="nav-link" href="../home/index.html">首页</a>
 <a class="nav-link" href="../index.html">最新一期</a>
@@ -23,10 +28,17 @@
 </nav>
 </div>
 </header>
-<main class="page-shell">
+<main class="page-shell" id="main-content">
 <section class="intro">
-<h2>跨期骑行经验与实用信息</h2>
+<div>
+<p class="page-eyebrow">RIDING PLAYBOOK · 骑行手册</p>
+<h2>把群里的经验，变成下次出发能用的答案</h2>
 <p>按训练恢复、路线风险、装备设定和活动骑游归类，并保留首次出现、最近更新与来源总结。</p>
+</div>
+<div class="intro-stat" aria-label="知识条目总数">
+<strong>43</strong>
+<span>条可复用知识</span>
+</div>
 </section>
 <section class="category-grid" aria-label="知识分类统计">
 <div class="category">
@@ -46,8 +58,15 @@
 <span>活动与骑游</span>
 </div>
 </section>
-<div class="tools" role="search">
-<input class="search" id="knowledge-search" type="search" placeholder="搜索标题、内容或术语">
+<div class="tools" role="search" aria-label="知识检索">
+<label class="search-field" for="knowledge-search">
+<span class="field-label">搜索骑行知识</span>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="7"></circle>
+<path d="m20 20-4-4"></path>
+</svg>
+<input class="search" id="knowledge-search" type="search" placeholder="搜索标题、内容或术语" autocomplete="off">
+</label>
 <div class="filters" id="knowledge-filters">
 <button class="filter" type="button" data-category="" aria-pressed="true">全部</button>
 <button class="filter" type="button" data-category="training-recovery" aria-pressed="false">训练与恢复</button>
@@ -56,7 +75,11 @@
 <button class="filter" type="button" data-category="events-rides" aria-pressed="false">活动与骑游</button>
 </div>
 </div>
-<section class="knowledge-list" id="knowledge-list">
+<div class="knowledge-result" aria-live="polite">
+<span id="knowledge-result-count">显示 43 条知识</span>
+<button class="knowledge-clear" id="knowledge-clear" type="button" hidden>清除筛选</button>
+</div>
+<section class="knowledge-list" id="knowledge-list" aria-label="骑行知识条目">
 <article
 class="knowledge-item"
 data-category="training-recovery"
@@ -1070,6 +1093,6 @@ data-search="功率训练看功率，速度复盘看环境和姿势 问骑有氧
 <footer>
 <div class="page-shell">知识内容来自已发布聊天总结，训练与安全事项请结合个人情况判断。</div>
 </footer>
-<script src="../assets/knowledge.js" defer></script>
+<script src="../assets/knowledge.js?v=e512098c79aa" defer></script>
 </body>
 </html>
