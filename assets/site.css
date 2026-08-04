@@ -661,6 +661,148 @@
             white-space: nowrap;
         }
 
+        .checkin-board {
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .checkin-board-head,
+        .checkin-row {
+            display: grid;
+            grid-template-columns: 64px minmax(180px, 1fr) 110px 110px 150px 150px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checkin-board-head {
+            min-height: 42px;
+            padding: 0 20px;
+            background: var(--paper);
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .checkin-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .checkin-row {
+            min-height: 68px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        .checkin-rank {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 780;
+            text-align: center;
+        }
+
+        .checkin-row:nth-child(-n + 3) .checkin-rank {
+            color: var(--coral-text);
+        }
+
+        .checkin-member {
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkin-name {
+            min-width: 0;
+            overflow: hidden;
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 720;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .checkin-stat {
+            color: var(--body);
+            font-size: 13px;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        .checkin-stat strong {
+            color: var(--green-dark);
+            font-size: 17px;
+            font-weight: 780;
+        }
+
+        .checkin-dates {
+            display: contents;
+        }
+
+        .checkin-period {
+            color: var(--muted);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .checkin-period-label {
+            display: none;
+        }
+
+        .checkin-board-action {
+            display: flex;
+            justify-content: flex-end;
+            padding: 14px 18px;
+            border-top: 1px solid var(--line);
+            background: var(--paper);
+        }
+
+        .checkin-board-link {
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 8px 13px;
+            border: 1px solid var(--blue);
+            border-radius: 6px;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 720;
+        }
+
+        .checkin-board-link svg {
+            width: 15px;
+            height: 15px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+        }
+
+        .checkin-board-link:hover,
+        .checkin-board-link:focus-visible {
+            background: var(--blue);
+            color: var(--surface);
+            outline: 3px solid rgba(53, 94, 215, 0.14);
+            outline-offset: 2px;
+        }
+
+        .page-intro--checkins {
+            border-top-color: var(--green);
+        }
+
+        .checkin-method {
+            margin: 12px 2px 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
         .secondary-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1337,7 +1479,7 @@
             .header-nav {
                 width: 100%;
                 display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-columns: repeat(5, minmax(0, 1fr));
                 gap: 4px;
                 padding-top: 8px;
                 border-top: 1px solid var(--line);
@@ -1491,6 +1633,52 @@
 
             .ranking-list {
                 padding: 0 14px 10px;
+            }
+
+            .checkin-board-head {
+                display: none;
+            }
+
+            .checkin-row {
+                grid-template-columns: 28px minmax(0, 1fr) auto auto;
+                gap: 6px 10px;
+                min-height: 78px;
+                padding: 12px 14px;
+            }
+
+            .checkin-rank {
+                grid-row: 1 / span 2;
+            }
+
+            .checkin-stat strong {
+                font-size: 15px;
+            }
+
+            .checkin-dates {
+                min-width: 0;
+                display: flex;
+                grid-column: 2 / -1;
+                flex-wrap: wrap;
+                gap: 4px 14px;
+            }
+
+            .checkin-period {
+                font-size: 11px;
+            }
+
+            .checkin-period-label {
+                display: inline;
+                margin-right: 4px;
+                color: var(--body);
+                font-weight: 680;
+            }
+
+            .checkin-board-action {
+                padding: 12px 14px;
+            }
+
+            .checkin-board-link {
+                width: 100%;
             }
 
             .hour-insight {

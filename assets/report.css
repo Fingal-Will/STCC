@@ -48,7 +48,7 @@
             top: 0;
             z-index: 20;
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             align-items: stretch;
             margin-bottom: 20px;
             background: rgba(237, 237, 237, 0.96);
@@ -2256,7 +2256,7 @@
             .report-toolbar {
                 width: 100%;
                 display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-columns: repeat(5, minmax(0, 1fr));
                 gap: 0;
                 padding-top: 6px;
                 border-top: 1px solid var(--wx-border);
