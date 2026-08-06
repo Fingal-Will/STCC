@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>蜗牛电台·往期节目</title>
+<style>
+:root {
+    --ink: #17372f;
+    --paper: #f4f6f0;
+    --canvas: #cbd7d1;
+    --muted: #60716a;
+    --line: #a5b4ad;
+    --green: #155b4e;
+    --blue: #355ed7;
+    --yellow: #c3ed62;
+    --white: #fbfcf7;
+}
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--canvas);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    line-height: 1.65;
+}
+a { color: inherit; }
+.page {
+    width: min(100%, 960px);
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 20px 60px rgba(23, 55, 47, 0.16);
+}
+.header {
+    padding: 34px clamp(20px, 6vw, 54px) 38px;
+    color: var(--white);
+    background: var(--green);
+    border-bottom: 8px solid var(--yellow);
+}
+.station { margin: 0 0 8px; color: var(--yellow); font-size: 13px; font-weight: 900; letter-spacing: .12em; }
+h1 { margin: 0; font-size: clamp(34px, 8vw, 64px); line-height: 1.05; letter-spacing: -.04em; }
+.subtitle { max-width: 620px; margin: 18px 0 0; color: rgba(251, 252, 247, .82); }
+.nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    border: 2px solid rgba(251, 252, 247, .55);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 800;
+}
+.nav a[aria-current="page"] { color: var(--ink); background: var(--yellow); border-color: var(--yellow); }
+.content { padding: 32px clamp(18px, 5vw, 48px) 56px; }
+.issue-list { display: grid; gap: 16px; }
+.issue {
+    display: block;
+    padding: 22px;
+    color: inherit;
+    background: var(--white);
+    border: 2px solid var(--line);
+    border-radius: 18px;
+    text-decoration: none;
+    box-shadow: 7px 7px 0 rgba(53, 94, 215, .14);
+}
+.issue:hover, .issue:focus-visible { border-color: var(--blue); transform: translateY(-1px); }
+.issue-period { color: var(--blue); font-size: 13px; font-weight: 900; }
+.issue h2 { margin: 6px 0 8px; font-size: clamp(21px, 5vw, 29px); line-height: 1.25; }
+.issue p { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+.empty { padding: 28px; border: 2px dashed var(--line); border-radius: 18px; color: var(--muted); }
+.footer { padding: 20px; color: var(--muted); text-align: center; font-size: 13px; }
+@media (max-width: 560px) {
+    .header { padding-top: 26px; }
+    .content { padding-top: 24px; }
+    .issue { padding: 18px; box-shadow: 4px 4px 0 rgba(53, 94, 215, .14); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <p class="station">SNAIL RADIO · BEIJING</p>
+        <h1>往期节目</h1>
+        <p class="subtitle">从天气、路线和装备，到群里的生活频道与名场面，每一期都单独存档。</p>
+        <nav class="nav" aria-label="蜗牛电台导航">
+            <a href="../">最新一期</a>
+            <a href="./" aria-current="page">往期节目</a>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="issue-list">
+            <a class="issue" href="../summaries/2026-07-30-104328-to-2026-08-06-104328/">
+                <div class="issue-period">2026-07-30 10:43 至 2026-08-06 10:43</div>
+                <h2>蜗牛电台·近一周聊天放送</h2>
+<p>雨云追着车轮跑，频道从咖胶一路切到羽毛球和报纸队服。</p>            </a>
+        </div>
+    </main>
+    <footer class="footer">蜗牛电台 · 北京频道</footer>
+</div>
+</body>
+</html>

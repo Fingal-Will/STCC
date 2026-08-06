@@ -1,0 +1,2772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="snail-radio-site" content="snail-radio">
+<meta name="snail-radio-title" content="蜗牛电台·近一周聊天放送">
+<meta name="snail-radio-tagline" content="雨云追着车轮跑，频道从咖胶一路切到羽毛球和报纸队服。">
+<meta name="snail-radio-period" content="2026-07-30 10:43 至 2026-08-06 10:43">
+<meta name="snail-radio-start" content="2026-07-30 10:43:28">
+<meta name="snail-radio-end" content="2026-08-06 10:43:28">
+<title>蜗牛电台·近一周聊天放送</title>
+<style>
+        :root {
+            --ink: #17372f;
+            --paper: #f4f6f0;
+            --canvas: #cbd7d1;
+            --muted: #60716a;
+            --line: #a5b4ad;
+            --red: #df4b91;
+            --green: #155b4e;
+            --blue: #355ed7;
+            --yellow: #c3ed62;
+            --sky: #d8def7;
+            --warm: #eadfed;
+            --mist: #e8eeea;
+            --white: #fbfcf7;
+            --max-width: 1040px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            background: var(--canvas);
+        }
+
+        body {
+            color: var(--ink);
+            background: var(--canvas);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                "Microsoft YaHei", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .page {
+            width: min(100%, var(--max-width));
+            margin: 0 auto;
+            background: var(--paper);
+            box-shadow: 0 20px 60px rgba(23, 55, 47, 0.16);
+            overflow: hidden;
+        }
+
+        .radio-nav {
+            min-height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 7px 24px;
+            color: var(--white);
+            background: var(--green);
+            border-bottom: 1px solid rgba(251, 252, 247, 0.24);
+        }
+
+        .radio-nav a {
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 14px;
+            color: inherit;
+            border: 1px solid rgba(251, 252, 247, 0.45);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .radio-nav a[aria-current="page"] {
+            color: var(--ink);
+            background: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .broadcast-strip {
+            min-height: 40px;
+            padding: 9px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            overflow: hidden;
+            color: var(--white);
+            background: var(--blue);
+            border-bottom: 2px solid var(--ink);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .on-air {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .on-air-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--yellow);
+            box-shadow: 0 0 0 3px rgba(195, 237, 98, 0.24);
+        }
+
+        .ticker-line {
+            display: flex;
+            gap: 24px;
+            min-width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .hero {
+            color: var(--white);
+            background: var(--green);
+            border-bottom: 8px solid var(--sky);
+        }
+
+        .hero-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 260px;
+            gap: 38px;
+            padding: 44px 48px 40px;
+            align-items: stretch;
+        }
+
+        .station-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            color: var(--yellow);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .station-mark {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            color: var(--ink);
+            background: var(--yellow);
+            border: 2px solid var(--yellow);
+            border-radius: 50%;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .station-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.35;
+        }
+
+        .station-name strong {
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        .hero-kicker {
+            margin-bottom: 8px;
+            color: var(--sky);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        h1 {
+            max-width: 680px;
+            color: var(--white);
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 50px;
+            line-height: 1.13;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-tagline {
+            max-width: 660px;
+            margin-top: 20px;
+            color: #dcebe5;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .frequency-panel {
+            min-height: 260px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--ink);
+            background: var(--yellow);
+            border: 3px solid var(--white);
+            box-shadow: 8px 8px 0 var(--red);
+        }
+
+        .frequency-label {
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .frequency-value {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 31px;
+            line-height: 1.05;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .signal-rule {
+            height: 44px;
+            display: flex;
+            align-items: flex-end;
+            gap: 5px;
+        }
+
+        .signal-rule span {
+            width: 9px;
+            background: var(--ink);
+        }
+
+        .signal-rule span:nth-child(1) {
+            height: 13px;
+        }
+
+        .signal-rule span:nth-child(2) {
+            height: 22px;
+        }
+
+        .signal-rule span:nth-child(3) {
+            height: 31px;
+        }
+
+        .signal-rule span:nth-child(4) {
+            height: 43px;
+        }
+
+        .frequency-period {
+            padding-top: 14px;
+            border-top: 2px solid var(--ink);
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(2, 1fr);
+            border-top: 1px solid rgba(251, 252, 247, 0.28);
+        }
+
+        .hero-stat {
+            min-width: 0;
+            padding: 18px 26px;
+            border-right: 1px solid rgba(251, 252, 247, 0.28);
+        }
+
+        .hero-stat:last-child {
+            border-right: 0;
+        }
+
+        .hero-stat strong {
+            display: block;
+            color: var(--yellow);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 26px;
+            line-height: 1.2;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-stat:first-child strong {
+            color: var(--white);
+            font-family: inherit;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .hero-stat span {
+            display: block;
+            margin-top: 5px;
+            color: #bcd0c8;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .quick-listen {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            color: var(--ink);
+            background: var(--white);
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .quick-label {
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--sky);
+            color: var(--ink);
+            border-right: 2px solid var(--ink);
+        }
+
+        .quick-label span {
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .quick-label strong {
+            margin-top: 3px;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+
+        .quick-copy {
+            padding: 30px 36px;
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.8;
+        }
+
+        .section {
+            padding: 48px;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        .section-sky {
+            background: var(--sky);
+        }
+
+        .section-green {
+            color: var(--white);
+            background: var(--green);
+        }
+
+        .section-yellow {
+            background: var(--warm);
+        }
+
+        .section-heading {
+            margin-bottom: 26px;
+            padding-top: 14px;
+            display: grid;
+            grid-template-columns: 58px minmax(0, 1fr) auto;
+            gap: 16px;
+            align-items: end;
+            border-top: 1px solid currentColor;
+        }
+
+        .section-no {
+            height: 42px;
+            display: grid;
+            place-items: center;
+            color: var(--white);
+            background: var(--blue);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .section-green .section-no {
+            color: var(--ink);
+            background: var(--yellow);
+        }
+
+        .section-title {
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 30px;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .section-note {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .section-green .section-note {
+            color: #c9e3d9;
+        }
+
+        .headline-layout {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .lead-story {
+            position: relative;
+            grid-column: 1 / 8;
+            grid-row: 1 / 3;
+            min-height: 500px;
+            padding: 28px;
+            display: grid;
+            grid-template-rows: auto minmax(150px, 1fr) auto;
+            overflow: hidden;
+            color: var(--white);
+            background: var(--green);
+            border: 2px solid var(--green);
+            box-shadow: 9px 9px 0 var(--sky);
+        }
+
+        .lead-story::before {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(255, 254, 248, 0.2);
+            pointer-events: none;
+        }
+
+        .lead-story-top {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .story-label {
+            display: inline-flex;
+            width: fit-content;
+            padding: 4px 9px;
+            color: var(--white);
+            background: var(--red);
+            border: 1px solid var(--red);
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .story-station {
+            color: #bcd0c8;
+            font-size: 10px;
+            font-weight: 800;
+            text-align: right;
+        }
+
+        .lead-graphic {
+            position: relative;
+            z-index: 1;
+            min-height: 170px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 22px 10px 18px;
+            border-bottom: 1px solid rgba(255, 254, 248, 0.38);
+        }
+
+        .lead-number {
+            color: var(--yellow);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 156px;
+            line-height: 0.72;
+            font-weight: 900;
+        }
+
+        .lead-signal {
+            height: 112px;
+            display: flex;
+            align-items: flex-end;
+            gap: 9px;
+        }
+
+        .lead-signal i {
+            width: 15px;
+            display: block;
+            background: var(--blue);
+        }
+
+        .lead-signal i:nth-child(1) {
+            height: 28px;
+        }
+
+        .lead-signal i:nth-child(2) {
+            height: 52px;
+        }
+
+        .lead-signal i:nth-child(3) {
+            height: 78px;
+        }
+
+        .lead-signal i:nth-child(4) {
+            height: 108px;
+        }
+
+        .lead-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lead-story h2 {
+            margin-top: 24px;
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 36px;
+            line-height: 1.22;
+            overflow-wrap: anywhere;
+        }
+
+        .lead-story p {
+            margin-top: 16px;
+            color: #dcebe5;
+            font-size: 16px;
+        }
+
+        .brief-stack {
+            display: contents;
+        }
+
+        .brief-item {
+            min-width: 0;
+            min-height: 0;
+            padding: 20px;
+            background: var(--white);
+            border: 1px solid var(--ink);
+            border-top: 7px solid var(--blue);
+        }
+
+        .brief-item-1 {
+            grid-column: 8 / 13;
+            grid-row: 1;
+            background: var(--sky);
+        }
+
+        .brief-item-2 {
+            grid-column: 8 / 13;
+            grid-row: 2;
+            background: var(--warm);
+            border-top-color: var(--red);
+        }
+
+        .brief-item:nth-child(n + 3) {
+            grid-column: span 4;
+            border-top-color: var(--green);
+        }
+
+        .brief-item:nth-child(4n) {
+            border-top-color: var(--yellow);
+            background: var(--sky);
+        }
+
+        .brief-item:nth-child(5n) {
+            border-top-color: var(--blue);
+            background: var(--warm);
+        }
+
+        .brief-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .brief-channel {
+            min-width: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brief-index {
+            color: var(--white);
+            background: var(--blue);
+            padding: 2px 6px;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .brief-item h3 {
+            margin-top: 12px;
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 19px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        .brief-item p {
+            margin-top: 8px;
+            color: #435c53;
+            font-size: 13px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .topic-card {
+            min-height: 220px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid var(--ink);
+            border-radius: 4px;
+        }
+
+        .topic-card:nth-child(3n + 1) {
+            background: var(--sky);
+            border-top: 8px solid var(--blue);
+        }
+
+        .topic-card:nth-child(3n + 2) {
+            background: var(--white);
+            border-top: 8px solid var(--green);
+        }
+
+        .topic-card:nth-child(3n + 3) {
+            background: var(--warm);
+            border-top: 8px solid var(--red);
+        }
+
+        .topic-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .topic-category {
+            color: var(--blue);
+        }
+
+        .topic-card h3 {
+            margin-top: 14px;
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 22px;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+        }
+
+        .topic-card p {
+            margin-top: 10px;
+            color: #435c53;
+        }
+
+        .topic-keywords {
+            margin-top: auto;
+            padding-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .topic-keywords span {
+            padding: 3px 8px;
+            color: var(--ink);
+            background: var(--yellow);
+            border: 1px solid var(--ink);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .radar-column {
+            min-width: 0;
+            border: 1px solid rgba(251, 252, 247, 0.72);
+        }
+
+        .radar-title {
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--ink);
+            background: var(--yellow);
+            border-bottom: 1px solid var(--ink);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .radar-title span {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 12px;
+        }
+
+        .radar-item {
+            padding: 17px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+        }
+
+        .radar-item:last-child {
+            border-bottom: 0;
+        }
+
+        .radar-item-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .radar-item h3 {
+            font-size: 16px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .status {
+            flex: 0 0 auto;
+            padding: 2px 7px;
+            color: var(--ink);
+            background: var(--white);
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .radar-detail {
+            margin-top: 6px;
+            color: #e2efe9;
+            font-size: 13px;
+        }
+
+        .radar-meta {
+            margin-top: 9px;
+            color: #b9d9cc;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .notice-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .notice-item {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 72px minmax(0, 1fr);
+            gap: 18px;
+            background: var(--white);
+            border: 1px solid var(--ink);
+            border-radius: 4px;
+        }
+
+        .notice-item:nth-child(even) {
+            background: var(--sky);
+        }
+
+        .notice-priority {
+            height: 32px;
+            display: grid;
+            place-items: center;
+            color: var(--white);
+            background: var(--blue);
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .notice-item:nth-child(3n + 2) .notice-priority {
+            background: var(--red);
+        }
+
+        .notice-item:nth-child(3n + 3) .notice-priority {
+            color: var(--ink);
+            background: var(--yellow);
+        }
+
+        .notice-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .notice-head strong {
+            color: var(--ink);
+            font-size: 15px;
+        }
+
+        .notice-summary {
+            margin-top: 5px;
+            font-weight: 800;
+        }
+
+        .notice-quote {
+            margin-top: 9px;
+            padding-left: 12px;
+            color: #435c53;
+            border-left: 4px solid var(--blue);
+        }
+
+        .notice-editor {
+            margin-top: 8px;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .dialogue-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .dialogue {
+            background: var(--white);
+            border: 2px solid var(--ink);
+            box-shadow: 6px 6px 0 var(--blue);
+        }
+
+        .dialogue-header {
+            padding: 11px 16px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--white);
+            background: var(--ink);
+            font-weight: 800;
+        }
+
+        .dialogue-header span:last-child {
+            color: var(--yellow);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 12px;
+        }
+
+        .chat {
+            padding: 20px;
+            display: grid;
+            gap: 15px;
+            background: var(--mist);
+        }
+
+        .chat-row {
+            display: grid;
+            grid-template-columns: 42px minmax(0, 1fr);
+            gap: 11px;
+            align-items: start;
+        }
+
+        .avatar {
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            flex: 0 0 auto;
+            color: var(--white);
+            background: var(--blue);
+            border: 1px solid rgba(22, 25, 23, 0.3);
+            border-radius: 4px;
+            font-weight: 900;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-fallback {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+
+        .chat-avatar {
+            width: 42px;
+            height: 42px;
+        }
+
+        .chat-meta {
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .chat-bubble {
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 4px;
+            padding: 10px 13px;
+            background: var(--white);
+            border: 1px solid #bac8c1;
+            border-radius: 3px 6px 6px 6px;
+            overflow-wrap: anywhere;
+        }
+
+        .dialogue-highlight {
+            padding: 14px 18px;
+            color: var(--ink);
+            background: var(--yellow);
+            border-top: 2px solid var(--ink);
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .role-card {
+            min-height: 198px;
+            padding: 22px;
+            background: var(--white);
+            border: 1px solid var(--ink);
+            border-bottom: 8px solid var(--blue);
+            border-radius: 4px;
+        }
+
+        .role-card:nth-child(3n + 2) {
+            border-bottom-color: var(--red);
+        }
+
+        .role-card:nth-child(3n + 3) {
+            border-bottom-color: var(--green);
+        }
+
+        .role-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .role-avatar {
+            width: 50px;
+            height: 50px;
+        }
+
+        .role-name {
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .role-title {
+            margin-top: 2px;
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .role-reason {
+            margin-top: 17px;
+            color: #435c53;
+        }
+
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .resource,
+        .qa {
+            padding: 22px;
+            background: var(--white);
+            border: 1px solid var(--ink);
+            border-radius: 4px;
+        }
+
+        .resource-type,
+        .qa-label {
+            display: inline-flex;
+            padding: 3px 8px;
+            color: var(--white);
+            background: var(--blue);
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .resource h3,
+        .qa h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .resource-meta,
+        .qa-meta {
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .resource p,
+        .qa-answer {
+            margin-top: 10px;
+            color: #435c53;
+        }
+
+        .resource ul {
+            margin: 10px 0 0 18px;
+        }
+
+        .resource li + li {
+            margin-top: 4px;
+        }
+
+        .qa + .qa {
+            margin-top: 16px;
+        }
+
+        .qa-label {
+            background: var(--red);
+        }
+
+        .qa-answer {
+            padding-top: 10px;
+            border-top: 1px dashed var(--line);
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .heat-panel,
+        .rank-panel {
+            padding: 24px;
+            background: var(--white);
+            border: 2px solid var(--ink);
+        }
+
+        .panel-title {
+            margin-bottom: 18px;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .heat-row + .heat-row {
+            margin-top: 15px;
+        }
+
+        .heat-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .heat-track {
+            height: 11px;
+            margin-top: 6px;
+            overflow: hidden;
+            background: var(--mist);
+            border: 1px solid var(--ink);
+        }
+
+        .heat-fill {
+            height: 100%;
+            background: var(--blue);
+        }
+
+        .heat-fill-1 {
+            background: var(--green);
+        }
+
+        .heat-fill-2 {
+            background: var(--red);
+        }
+
+        .heat-fill-3 {
+            background: var(--yellow);
+        }
+
+        .heat-fill-4 {
+            background: var(--ink);
+        }
+
+        .rank-list {
+            display: grid;
+            gap: 9px;
+        }
+
+        .rank-item {
+            min-width: 0;
+            display: grid;
+            grid-template-columns: 30px 40px minmax(0, 1fr) auto;
+            gap: 10px;
+            align-items: center;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #d3ddd8;
+        }
+
+        .rank-item:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .rank-number {
+            color: var(--blue);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .rank-avatar {
+            width: 40px;
+            height: 40px;
+        }
+
+        .rank-name {
+            min-width: 0;
+            font-size: 13px;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .rank-tags {
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .rank-count {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .owl-line {
+            margin-top: 18px;
+            padding: 15px 17px;
+            color: var(--white);
+            background: var(--green);
+            border-left: 8px solid var(--yellow);
+            font-size: 13px;
+        }
+
+        .owl-line strong {
+            color: var(--yellow);
+        }
+
+        .word-cloud {
+            min-height: 260px;
+            padding: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px 15px;
+            background: var(--white);
+            border: 2px solid var(--ink);
+            overflow: hidden;
+        }
+
+        .cloud-word {
+            display: inline-block;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .cloud-color-0 {
+            color: var(--green);
+        }
+
+        .cloud-color-1 {
+            color: var(--blue);
+        }
+
+        .cloud-color-2 {
+            color: var(--red);
+        }
+
+        .cloud-color-3 {
+            color: var(--ink);
+        }
+
+        .cloud-color-4 {
+            color: #749d2d;
+        }
+
+        .watch-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .watch-item {
+            min-height: 120px;
+            padding: 18px;
+            color: var(--white);
+            background: var(--green);
+            border-top: 7px solid var(--blue);
+            border-radius: 0 0 6px 6px;
+            font-weight: 700;
+        }
+
+        .watch-item:nth-child(3n + 2) {
+            background: var(--blue);
+            border-top-color: var(--yellow);
+        }
+
+        .watch-item:nth-child(3n + 3) {
+            background: var(--ink);
+            border-top-color: var(--red);
+        }
+
+        .watch-index {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--yellow);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .closing {
+            padding: 46px 48px;
+            color: var(--white);
+            background: var(--blue);
+            border-top: 10px solid var(--yellow);
+            border-bottom: 2px solid var(--ink);
+            text-align: center;
+        }
+
+        .closing-label {
+            color: var(--yellow);
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .closing-copy {
+            max-width: 760px;
+            margin: 12px auto 0;
+            font-family: Georgia, "Songti SC", "SimSun", serif;
+            font-size: 25px;
+            line-height: 1.55;
+            font-weight: 900;
+        }
+
+        footer {
+            padding: 24px 32px 30px;
+            color: #bcd0c8;
+            background: var(--green);
+            font-size: 11px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        footer p + p {
+            margin-top: 4px;
+        }
+
+        .disclaimer {
+            max-width: 760px;
+            margin: 12px auto 0;
+            color: #8eaaa0;
+        }
+
+        @media (max-width: 760px) {
+            .broadcast-strip {
+                padding-inline: 16px;
+            }
+
+            .ticker-line {
+                gap: 14px;
+            }
+
+            .hero-main {
+                grid-template-columns: 1fr;
+                gap: 26px;
+                padding: 32px 22px 28px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+            }
+
+            .frequency-panel {
+                min-height: 190px;
+                box-shadow: 6px 6px 0 var(--red);
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-stat:first-child {
+                grid-column: 1 / -1;
+                border-bottom: 1px solid rgba(251, 252, 247, 0.28);
+            }
+
+            .hero-stat:nth-child(2) {
+                border-right: 1px solid rgba(251, 252, 247, 0.28);
+            }
+
+            .quick-listen {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-label {
+                padding: 16px 20px;
+                border-right: 0;
+                border-bottom: 2px solid var(--ink);
+            }
+
+            .quick-label strong {
+                font-size: 20px;
+            }
+
+            .quick-copy {
+                padding: 22px;
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 36px 18px;
+            }
+
+            .section-heading {
+                grid-template-columns: 48px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .section-note {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .headline-layout,
+            .topic-grid,
+            .radar-grid,
+            .role-grid,
+            .utility-grid,
+            .analytics-grid,
+            .watch-list {
+                grid-template-columns: 1fr;
+            }
+
+            .brief-stack {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .lead-story {
+                grid-column: auto;
+                grid-row: auto;
+                min-height: 440px;
+                padding: 25px;
+                box-shadow: 5px 5px 0 var(--sky);
+            }
+
+            .lead-number {
+                font-size: 150px;
+            }
+
+            .lead-story h2 {
+                font-size: 28px;
+            }
+
+            .brief-item,
+            .brief-item-1,
+            .brief-item-2,
+            .brief-item:nth-child(n + 3) {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .notice-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .notice-priority {
+                width: 72px;
+            }
+
+            .role-card {
+                min-height: 0;
+            }
+
+            .rank-item {
+                grid-template-columns: 27px 38px minmax(0, 1fr);
+            }
+
+            .rank-count {
+                grid-column: 3;
+                white-space: normal;
+            }
+
+            .word-cloud {
+                min-height: 330px;
+                padding: 22px 14px;
+                gap: 9px 12px;
+            }
+
+            .closing {
+                padding: 38px 22px;
+            }
+
+            .closing-copy {
+                font-size: 21px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .station-name strong {
+                font-size: 14px;
+            }
+
+            .frequency-value {
+                font-size: 27px;
+            }
+
+            .hero-stat {
+                padding-inline: 18px;
+            }
+
+            .section-title {
+                font-size: 23px;
+            }
+
+            .lead-story {
+                min-height: 420px;
+            }
+
+            .lead-number {
+                font-size: 126px;
+            }
+
+            .lead-signal {
+                height: 92px;
+                gap: 7px;
+            }
+
+            .lead-signal i {
+                width: 12px;
+            }
+
+            .lead-signal i:nth-child(4) {
+                height: 88px;
+            }
+
+            .chat {
+                padding: 15px;
+            }
+
+            .chat-row {
+                grid-template-columns: 36px minmax(0, 1fr);
+                gap: 9px;
+            }
+
+            .chat-avatar {
+                width: 36px;
+                height: 36px;
+            }
+
+            .rank-count {
+                overflow-wrap: anywhere;
+            }
+
+            .word-cloud {
+                min-height: 300px;
+                padding: 18px 10px;
+                gap: 7px 9px;
+            }
+
+            .cloud-word {
+                font-size: min(var(--cloud-size, 18px), 22px) !important;
+            }
+
+            .closing {
+                padding-inline: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="page">
+<div class="broadcast-strip">
+<span class="on-air"><span class="on-air-dot"></span>ON AIR</span>
+<div class="ticker-line">
+<span>石景山十分钟暴雨，群聊同步进入云图直播</span>
+<span>Strava、OB、行者再开路书工具圆桌</span>
+<span>骑车只是热身，羽毛球 2.5 级开始互相烟雾</span>
+</div>
+</div>
+<nav class="radio-nav" aria-label="蜗牛电台导航">
+<a href="../../" aria-current="page">最新一期</a>
+<a href="../../archive/">往期节目</a>
+</nav>
+<header class="hero">
+<div class="hero-main">
+<div>
+<div class="station-lockup">
+<div class="station-mark">SR</div>
+<div class="station-name">
+<strong>蜗牛电台</strong>
+<span>SNAIL RADIO · BEIJING</span>
+</div>
+</div>
+<div class="hero-kicker">🐌北京蜗牛车队🐌 · 群聊原声节目</div>
+<h1>蜗牛电台·近一周聊天放送</h1>
+<p class="hero-tagline">
+雨云追着车轮跑，频道从咖胶一路切到羽毛球和报纸队服。
+</p>
+</div>
+<aside class="frequency-panel">
+<span class="frequency-label">CURRENT FREQUENCY</span>
+<strong class="frequency-value">FM 0730—0806</strong>
+<div class="signal-rule" aria-hidden="true">
+<span></span><span></span><span></span><span></span>
+</div>
+<div class="frequency-period">2026-07-30 10:43 至 2026-08-06 10:43</div>
+</aside>
+</div>
+<div class="hero-stats">
+<div class="hero-stat">
+<strong>2026-07-30 10:43 至 2026-08-06 10:43</strong>
+<span>本期放送区间</span>
+</div>
+<div class="hero-stat">
+<strong>5160</strong>
+<span>条群聊信号</span>
+</div>
+<div class="hero-stat">
+<strong>150</strong>
+<span>位成员发声</span>
+</div>
+</div>
+</header>
+<section class="quick-listen">
+<div class="quick-label">
+<span>FAST FORWARD</span>
+<strong>20秒听懂本期</strong>
+</div>
+<div class="quick-copy">本期收到 5160 条群聊信号，150 位成员轮番上麦：石景山短时暴雨把下班路和夜骑局变成实时天气台；灵山骑行有人躲过雨、有人主动求雨，长安街与瓜草地路况继续更新；咖胶、基础代谢、坐垫、码表、路书和放坡走线轮番开课；骑完车还不够，羽毛球评级、队服开团和新人进主群又接管了生活频道。</div>
+</section>
+<section class="section section-white">
+<div class="section-heading">
+<span class="section-no">01</span>
+<h2 class="section-title">本期头条</h2>
+<span class="section-note">HEADLINE & SHORTWAVE</span>
+</div>
+<div class="headline-layout">
+<article class="lead-story">
+<div class="lead-story-top">
+<span class="story-label">FEATURE STORY</span>
+<span class="story-station">SNAIL RADIO / HEADLINE 01</span>
+</div>
+<div class="lead-graphic" aria-hidden="true">
+<span class="lead-number">01</span>
+<span class="lead-signal">
+<i></i><i></i><i></i><i></i>
+</span>
+</div>
+<div class="lead-copy">
+<h2>石景山暴雨突袭：有人差一分钟出门，有人一路把自己和车都洗了</h2>
+<p>8 月 3 日傍晚，北京西部多处群友连续播报起风、变黑、打雷和短时强降雨。石景山、首钢大桥、杨庄等地先后进入雨区，有人刚拐回家就起风，有人差一分钟出门，也有人在路上继续骑。群内转发了大风蓝色预警信息，现场反馈显示这场雨来得快、局地差异也很大。</p>
+</div>
+</article>
+<div class="brief-stack">
+<article class="brief-item brief-item-1">
+<div class="brief-meta">
+<span class="brief-channel">
+<span class="brief-index">01</span>
+<span>补给</span>
+</span>
+<span>07-30 14:39—15:23</span>
+</div>
+<h3>咖胶入口前，先开一场味觉与心率听证会</h3>
+<p>群友围绕咖啡因耐受、能量胶口味、骑行中碳水补给和恢复饮食讨论近一小时。WIN 咖胶被多人评价难吃，SIS、胶计划等也被拿来比较；Roy.Z 罗伊还晒出长距离骑行的一整日补给清单。</p>
+</article>
+<article class="brief-item brief-item-2">
+<div class="brief-meta">
+<span class="brief-channel">
+<span class="brief-index">02</span>
+<span>副业</span>
+</span>
+<span>07-31 15:30—16:13</span>
+</div>
+<h3>上午骑车，下午打球：主群突然转播羽毛球评级</h3>
+<p>7 月 31 日的天气讨论很快拐进羽毛球局。成员从场地、时段、球拍一路聊到 1.5、2.5、3.5 级自评，早起能不能打球成为核心争议，乒乓球、台球和高尔夫也短暂申请加入节目。</p>
+</article>
+<article class="brief-item brief-item-3">
+<div class="brief-meta">
+<span class="brief-channel">
+<span class="brief-index">03</span>
+<span>路线</span>
+</span>
+<span>08-02 17:54—20:42</span>
+</div>
+<h3>灵山同一场雨，骑出了两套天气结论</h3>
+<p>8 月 2 日灵山方向局地降雨明显：王平、斋堂、雁翅的湿润程度被逐段播报。反方向的梦多次淋雨，糖油混合物一组则反馈返程基本避开降水；群友同时提到林荫爬坡较凉快、斋堂一带风大。</p>
+</article>
+<article class="brief-item brief-item-4">
+<div class="brief-meta">
+<span class="brief-channel">
+<span class="brief-index">04</span>
+<span>工具</span>
+</span>
+<span>08-04 10:06—10:21</span>
+</div>
+<h3>Strava 地图嫌老，OB 和行者接替上班</h3>
+<p>昭昭询问 Strava 之外的路书方案，群友给出 OB、行者、黑鸟等选择。讨论认为 Strava 热图适合检查是否有人走过，但国内新路更新偏慢；OB 修复后更好用，行者可导出 GPX。</p>
+</article>
+<article class="brief-item brief-item-5">
+<div class="brief-meta">
+<span class="brief-channel">
+<span class="brief-index">05</span>
+<span>队服</span>
+</span>
+<span>08-05 15:43—16:25</span>
+</div>
+<h3>三十人活动，争取三十件不重样</h3>
+<p>报纸款、怪兽款、联赛款与银线骑行服集中返场。SOD 提到部分款式可满 10 人开团，成员继续比较价格、设计和穿着体验；新人进群后也立即询问队服与车牌购买方式。</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-heading">
+<span class="section-no">02</span>
+<h2 class="section-title">频道正在热播</h2>
+<span class="section-note">MOST DISCUSSED</span>
+</div>
+<div class="topic-grid">
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">天气实况</span>
+<span>08-02—08-03</span>
+</div>
+<h3>雨云在北京西部开了一个移动直播间</h3>
+<p>8 月 2 日灵山骑行与 8 月 3 日石景山暴雨连续占据频道。不同区域的雨势差异很大，群友用云图、视频和路上反馈互相校准；结论很朴素：局地雷阵雨不能只看一个地点，出门和返程都要留余量。</p>
+<div class="topic-keywords">
+<span>局地暴雨</span>
+<span>石景山</span>
+<span>灵山</span>
+</div>
+</article>
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">补给圆桌</span>
+<span>07-30 14:39—15:23</span>
+</div>
+<h3>长距离补给不是一根胶，而是一整天的流水账</h3>
+<p>咖胶、普通能量胶、软糖、含糖饮料和超市食品被逐一比较。讨论重点落在便携、吸收、肠胃负担与个人咖啡因耐受，不少人强调补给计划应结合强度和自身反应，而不是只追求高糖或高咖啡因。</p>
+<div class="topic-keywords">
+<span>咖胶</span>
+<span>碳水</span>
+<span>基础代谢</span>
+</div>
+</article>
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">工具评测</span>
+<span>08-03—08-04</span>
+</div>
+<h3>路书工具没有全能冠军，只有组合工位</h3>
+<p>Strava、OB、行者、黑鸟和码表导入再次被放到同一张桌上。Strava 热图便于看骑行痕迹，但国内新路更新较慢；OB 和行者可承担规划与 GPX 导出，最终仍要检查地图、爬升和实际可通行性。</p>
+<div class="topic-keywords">
+<span>Strava</span>
+<span>OB</span>
+<span>GPX</span>
+</div>
+</article>
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">安全课堂</span>
+<span>08-05 14:58—15:20</span>
+</div>
+<h3>放坡课的第一目标不是快，是别把自己放进急诊</h3>
+<p>8 月 5 日群友集中讨论下把位、摇车、走线和压弯。SOD 建议先看视频、再跟着走线稳定的人低速练习，并反复强调学习走线是为了安全；AARON 用曾在急诊再次见到超车者的经历提醒大家别把速度当教程。</p>
+<div class="topic-keywords">
+<span>放坡</span>
+<span>走线</span>
+<span>下把位</span>
+</div>
+</article>
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">生活频道</span>
+<span>07-31 15:30—16:13</span>
+</div>
+<h3>骑行群的交叉训练，从羽毛球烟雾开始</h3>
+<p>一场可能受天气影响的骑行安排，把群聊带进羽毛球场。成员互报等级、约场地、讨论早起和装备，随后乒乓球、台球与高尔夫轮流抢麦，形成了本周最完整的一次非骑行体育圆桌。</p>
+<div class="topic-keywords">
+<span>羽毛球</span>
+<span>打球</span>
+<span>评级</span>
+</div>
+</article>
+<article class="topic-card">
+<div class="topic-topline">
+<span class="topic-category">群内生活</span>
+<span>08-05 15:43—16:25</span>
+</div>
+<h3>报纸、怪兽与银线：队服衣柜继续扩容</h3>
+<p>队服讨论从制作进度、开团人数延伸到款式和穿着体验。报纸款已经从稀有变成活动常客，经典款与联赛款反而显得小众；群友的阶段目标是活动三十人、队服三十件不重样。</p>
+<div class="topic-keywords">
+<span>队服</span>
+<span>报纸款</span>
+<span>10人开团</span>
+</div>
+</article>
+</div>
+</section>
+<section class="section section-green">
+<div class="section-heading">
+<span class="section-no">03</span>
+<h2 class="section-title">骑行雷达</h2>
+<span class="section-note">RIDE SIGNALS</span>
+</div>
+<div class="radar-grid">
+<div class="radar-column">
+<div class="radar-title">计划与活动 <span>PLAN</span></div>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>车队线下店承办赛事报名</h3>
+<span class="status">待确认</span>
+</div>
+<div class="radar-detail">沈辉通知线下店作为赛事承办方，希望成员支持报名；正式报名链接将随后在活动群发布。群内已有成员表示已进群或准备报名。</div>
+<div class="radar-meta">
+08-01 12:27—12:41
+·
+沈辉
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>复兴门小火车返场请求</h3>
+<span class="status">讨论中</span>
+</div>
+<div class="radar-detail">王肇旗提到近期约一个月没有复兴门小火车，并向胖哥提出下周组织活动的请求；本期内未出现正式活动通知。</div>
+<div class="radar-meta">
+08-01 19:01—19:09
+·
+王肇旗
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>周日活动补积分</h3>
+<span class="status">待确认</span>
+</div>
+<div class="radar-detail">L 表示已两个月没有参加活动，希望周末取车后争取周日参加一次；这是个人计划，具体活动仍需等待群内通知。</div>
+<div class="radar-meta">
+08-05 16:20—16:24
+·
+L
+</div>
+</article>
+</div>
+<div class="radar-column">
+<div class="radar-title">路线与天气 <span>ROUTE</span></div>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>长安街与天安门通行经验更新</h3>
+<span class="status">现场经验</span>
+</div>
+<div class="radar-detail">群友反馈暑期晚间、升降旗时段和部分路口可能遇到限制或查验；有人选择经景山正门、西单绕行。实际通行情况存在变化，出发前宜再次确认。</div>
+<div class="radar-meta">
+08-01 18:24—18:45
+·
+群友路线台
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>灵山林荫凉快，斋堂风不一定配合</h3>
+<span class="status">路况记录</span>
+</div>
+<div class="radar-detail">骑行成员反馈灵山有树路段爬坡体感较凉，但斋堂方向出现明显顶风；同一下午王平、雁翅、斋堂雨况不同，山区天气要按路段判断。</div>
+<div class="radar-meta">
+08-02 17:54—20:42
+·
+糖油混合物
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>瓜草地部分路段陡、碎、节奏不均</h3>
+<span class="status">路线体验</span>
+</div>
+<div class="radar-detail">小超和考拉7😈提到瓜草地有黄土和烂路，部分路段需要推行或硬骑，坡度变化也不均匀；更适合溜达探路，不宜按平顺公路爬坡预期准备。</div>
+<div class="radar-meta">
+08-04 10:00—10:06
+·
+小超
+</div>
+</article>
+</div>
+<div class="radar-column">
+<div class="radar-title">装备与维护 <span>GEAR</span></div>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>4700、5800 与 11 速混搭讨论</h3>
+<span class="status">装备讨论</span>
+</div>
+<div class="radar-detail">垃圾无分享，4700、5800、R7000 和部分 6800 的拉线比及部分配件可讨论混搭；胖崔则从长途与维护角度说明自己偏好简单耐用的 10 速方案。具体改装仍应核对型号。</div>
+<div class="radar-meta">
+07-30 16:05—16:25
+·
+垃圾无
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>坐垫不适先看设定，再谈换垫</h3>
+<span class="status">个体经验</span>
+</div>
+<div class="radar-detail">群友从坐垫角度、坐高、宽度和飞艇数据展开讨论。多人提醒，不适感可能与姿势、车座和设定共同相关，单纯比较垫子厚薄或品牌未必能解决问题。</div>
+<div class="radar-meta">
+08-03 09:03—11:54
+·
+群友设定台
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>碳辐条担忧最终落到售后</h3>
+<span class="status">经验讨论</span>
+</div>
+<div class="radar-detail">酒醉风林弥猴询问 Roval CLX3 碳辐条是否容易损坏。群友认为常规使用不必过度担心，但尾勾变形、后拨卷入或外力踩踏都可能造成断条，购买时应重视售后与更换成本。</div>
+<div class="radar-meta">
+08-05 10:41—10:49
+·
+群友轮组台
+</div>
+</article>
+</div>
+<div class="radar-column">
+<div class="radar-title">安全频道 <span>SAFE</span></div>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>短时暴雨不要靠单点天气判断</h3>
+<span class="status">天气提醒</span>
+</div>
+<div class="radar-detail">8 月 3 日西部城区雨势在很短时间内快速变化，部分区域只下十分钟，附近路段却黑到影响视线。夜骑和通勤应预留躲雨位置，并关注风、雷电和能见度。</div>
+<div class="radar-meta">
+08-03 16:53—18:32
+·
+群友天气台
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>放坡走线是安全技能，不是提速表演</h3>
+<span class="status">安全建议</span>
+</div>
+<div class="radar-detail">SOD 建议先通过视频理解线路，再跟随走线稳定的人低速练习；进入弯道前应保留修正空间，避免在公开道路把压弯和超车当成竞速动作。</div>
+<div class="radar-meta">
+08-05 15:02—15:20
+·
+SOD
+</div>
+</article>
+<article class="radar-item">
+<div class="radar-item-head">
+<h3>内胎暴晒爆裂后，胎压不能只听一个数字</h3>
+<span class="status">个体经历</span>
+</div>
+<div class="radar-detail">贤分享前后 100 psi 的内胎在停车吃饭时被晒爆。群友提醒还要结合外胎与实际使用条件判断，炎热天气停车时也应注意暴晒。</div>
+<div class="radar-meta">
+08-05 15:16—15:17
+·
+贤
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section section-yellow">
+<div class="section-heading">
+<span class="section-no">04</span>
+<h2 class="section-title">本周信号公告</h2>
+<span class="section-note">NOTICE BOARD</span>
+</div>
+<div class="notice-list">
+<article class="notice-item">
+<span class="notice-priority">报名</span>
+<div>
+<div class="notice-head">
+<strong>沈辉</strong>
+<span>08-01 12:29</span>
+</div>
+<div class="notice-summary">赛事正式报名链接将在活动群另行通知。</div>
+<div class="notice-quote">“正式报名链接 稍后在活动群通知”</div>
+</div>
+</article>
+<article class="notice-item">
+<span class="notice-priority">天气</span>
+<div>
+<div class="notice-head">
+<strong>郑先生</strong>
+<span>08-03 18:07</span>
+</div>
+<div class="notice-summary">群内转发北京大风蓝色预警与短时强降水信息。</div>
+<div class="notice-quote">“7级左右短时大风+短时强降水！北京再发大风蓝色预警”</div>
+</div>
+</article>
+<article class="notice-item">
+<span class="notice-priority">安全</span>
+<div>
+<div class="notice-head">
+<strong>SOD</strong>
+<span>08-05 15:06</span>
+</div>
+<div class="notice-summary">学习放坡走线的目的应是提升安全，而不是追求更快。</div>
+<div class="notice-quote">“放坡反倒可以学学走线，压弯这些。。。不是为了快，是为了安全”</div>
+</div>
+</article>
+</div>
+</section>
+<section class="section section-sky">
+<div class="section-heading">
+<span class="section-no">05</span>
+<h2 class="section-title">群聊原声带</h2>
+<span class="section-note">LIVE CUTS</span>
+</div>
+<div class="dialogue-list">
+<article class="dialogue">
+<div class="dialogue-header">
+<span># WIN 咖胶的味觉审判</span>
+<span>LIVE 01</span>
+</div>
+<div class="chat">
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/z1UUMxyTpoyQ8V8CZCokdUnh3PD6xsRPs6hT6sqlr2W02z3iaCwLfiaIj9tDN5ibiacIzbWCLiaKic4sJukibYBYMjOeg/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">S</span>
+</div>
+<div>
+<div class="chat-meta">SOD · 07-30 14:45</div>
+<div class="chat-bubble">就是win的咖胶贼难吃。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/z1UUMxyTpoyQ8V8CZCokdUnh3PD6xsRPs6hT6sqlr2W02z3iaCwLfiaIj9tDN5ibiacIzbWCLiaKic4sJukibYBYMjOeg/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">S</span>
+</div>
+<div>
+<div class="chat-meta">SOD · 07-30 14:45</div>
+<div class="chat-bubble">胶计划和GU的咖胶好吃。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/BBAlJw59d4HpNibdxK8u46Licg4taECMh18HhvhftZLN4cGNmBzPlvBjRAW81PpO8lPY04YPic1Vo9BdsTMTLp9MuLqDiawrIBbBwpHWduAfJ2pOmGHh5OdWwMSFbv3GmeWh/132" alt="格日勒图ᠭᠡᠷᠡᠯᠲᠦ头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">格</span>
+</div>
+<div>
+<div class="chat-meta">格日勒图ᠭᠡᠷᠡᠯᠲᠦ · 07-30 14:45</div>
+<div class="chat-bubble">那天东指壶出门前吃了个WIN的咖胶，爬完以后他们说过了玻璃台的牌楼再想吃胶就很难了，怪不得我起步就吃……我：？</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="http://wx.qlogo.cn/mmhead/ver_1/42Ltjr6RicwdtFpCKg0P119icuLUbu03NsNq1LtAtRaoib1kiciamltHyAgpgTcr9yvNPMxibulk9Xez0EIWpIWzpQShEBSBjpiblzaLRYoNRiaHOIwV5dGj38ZmksUKnnjjQR1m/132" alt="胡友冬头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">胡</span>
+</div>
+<div>
+<div class="chat-meta">胡友冬 · 07-30 14:46</div>
+<div class="chat-bubble">上回那个咖啡胶。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="http://wx.qlogo.cn/mmhead/ver_1/42Ltjr6RicwdtFpCKg0P119icuLUbu03NsNq1LtAtRaoib1kiciamltHyAgpgTcr9yvNPMxibulk9Xez0EIWpIWzpQShEBSBjpiblzaLRYoNRiaHOIwV5dGj38ZmksUKnnjjQR1m/132" alt="胡友冬头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">胡</span>
+</div>
+<div>
+<div class="chat-meta">胡友冬 · 07-30 14:46</div>
+<div class="chat-bubble">太难吃了。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="http://wx.qlogo.cn/mmhead/ver_1/42Ltjr6RicwdtFpCKg0P119icuLUbu03NsNq1LtAtRaoib1kiciamltHyAgpgTcr9yvNPMxibulk9Xez0EIWpIWzpQShEBSBjpiblzaLRYoNRiaHOIwV5dGj38ZmksUKnnjjQR1m/132" alt="胡友冬头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">胡</span>
+</div>
+<div>
+<div class="chat-meta">胡友冬 · 07-30 14:46</div>
+<div class="chat-bubble">想当场回家。</div>
+</div>
+</div>
+</div>
+<div class="dialogue-highlight">导播短评：能量胶原本负责把人送到终点，这一包差点负责提前导航回家。</div>
+</article>
+<article class="dialogue">
+<div class="dialogue-header">
+<span># 羽毛球等级烟雾弹</span>
+<span>LIVE 02</span>
+</div>
+<div class="chat">
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/NrUuflT2icIkIGLWzOsLBDPHoLzAlPmeicw9bcLB3c0VLOqM5mlSwlHNEIpAho1j0kmgdJwowgtQER1A2eyShcKLk6FPhLibNU6zk1seVfiata20FAFLGYKaHm6ar2J9iaJyTJzdRXJKicGPN9XHtGW2F89A/132" alt="明明头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">明</span>
+</div>
+<div>
+<div class="chat-meta">明明 · 07-31 16:00</div>
+<div class="chat-bubble">双打几级？</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/DPk6tbO6e7frxzibNEvddaLUaryQzcR3d9tmMv2ZyYpk97S4PvCyWRQopIbNrQ4icyvvf8tmLwWXRa07DyyLjTEA0Okss007ENJSe5n1pzbYY/132" alt="no-zero-sum game头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">n</span>
+</div>
+<div>
+<div class="chat-meta">no-zero-sum game · 07-31 16:00</div>
+<div class="chat-bubble">2.5。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/DPk6tbO6e7frxzibNEvddaLUaryQzcR3d9tmMv2ZyYpk97S4PvCyWRQopIbNrQ4icyvvf8tmLwWXRa07DyyLjTEA0Okss007ENJSe5n1pzbYY/132" alt="no-zero-sum game头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">n</span>
+</div>
+<div>
+<div class="chat-meta">no-zero-sum game · 07-31 16:00</div>
+<div class="chat-bubble">问就是2.5。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/NrUuflT2icIkIGLWzOsLBDPHoLzAlPmeicw9bcLB3c0VLOqM5mlSwlHNEIpAho1j0kmgdJwowgtQER1A2eyShcKLk6FPhLibNU6zk1seVfiata20FAFLGYKaHm6ar2J9iaJyTJzdRXJKicGPN9XHtGW2F89A/132" alt="明明头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">明</span>
+</div>
+<div>
+<div class="chat-meta">明明 · 07-31 16:00</div>
+<div class="chat-bubble">太谦虚了吧。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/NrUuflT2icIkIGLWzOsLBDPHoLzAlPmeicw9bcLB3c0VLOqM5mlSwlHNEIpAho1j0kmgdJwowgtQER1A2eyShcKLk6FPhLibNU6zk1seVfiata20FAFLGYKaHm6ar2J9iaJyTJzdRXJKicGPN9XHtGW2F89A/132" alt="明明头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">明</span>
+</div>
+<div>
+<div class="chat-meta">明明 · 07-31 16:00</div>
+<div class="chat-bubble">我还给自己评了个3.5。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/DPk6tbO6e7frxzibNEvddaLUaryQzcR3d9tmMv2ZyYpk97S4PvCyWRQopIbNrQ4icyvvf8tmLwWXRa07DyyLjTEA0Okss007ENJSe5n1pzbYY/132" alt="no-zero-sum game头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">n</span>
+</div>
+<div>
+<div class="chat-meta">no-zero-sum game · 07-31 16:01</div>
+<div class="chat-bubble">一点谦虚没有。</div>
+</div>
+</div>
+</div>
+<div class="dialogue-highlight">导播短评：骑行功率可以上传平台，羽毛球等级先统一上传烟雾。</div>
+</article>
+<article class="dialogue">
+<div class="dialogue-header">
+<span># 差一分钟上赌桌</span>
+<span>LIVE 03</span>
+</div>
+<div class="chat">
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="chat-meta">Mr.Failure🎭 · 08-03 17:16</div>
+<div class="chat-bubble">赌不赌命呢。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="chat-meta">Mr.Failure🎭 · 08-03 17:17</div>
+<div class="chat-bubble">在做思想斗争。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="chat-meta">Mr.Failure🎭 · 08-03 17:18</div>
+<div class="chat-bubble">我命油我不油天！</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="chat-meta">Mr.Failure🎭 · 08-03 17:30</div>
+<div class="chat-bubble">还好我没出门。</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #155b4e;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="chat-meta">Mr.Failure🎭 · 08-03 17:31</div>
+<div class="chat-bubble">就差1分钟！</div>
+</div>
+</div>
+<div class="chat-row">
+<div class="avatar chat-avatar" style="background-color: #df4b91;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/MEZVKkRxjCXpxp1Hj0vX0N7dV8s8GAFaiaauyG1vG8ic4TAXuBeGsAKLdiaedct65t3sxezGfnfNiagXxZezWpBfyu2QMlcW9DhtXfmUJMIVqic0eEFSQcAdX28xkROLV1ZD25wUlIocEdkmljJgrlkQ0icw/132" alt="佛系少女头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">佛</span>
+</div>
+<div>
+<div class="chat-meta">佛系少女 · 08-03 17:31</div>
+<div class="chat-bubble">6。</div>
+</div>
+</div>
+</div>
+<div class="dialogue-highlight">导播短评：本场天气竞猜的最高收益，是用一分钟保住了干衣服。</div>
+</article>
+</div>
+</section>
+<section class="section section-white">
+<div class="section-heading">
+<span class="section-no">06</span>
+<h2 class="section-title">本期临时职位</h2>
+<span class="section-note">WEEKLY CAST</span>
+</div>
+<div class="role-grid">
+<article class="role-card">
+<div class="role-head">
+<div class="avatar role-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/z1UUMxyTpoyQ8V8CZCokdUnh3PD6xsRPs6hT6sqlr2W02z3iaCwLfiaIj9tDN5ibiacIzbWCLiaKic4sJukibYBYMjOeg/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">S</span>
+</div>
+<div>
+<div class="role-name">SOD</div>
+<div class="role-title">全频道安全与补给双科教员</div>
+</div>
+</div>
+<div class="role-reason">从咖胶、基础代谢讲到放坡走线和队服穿着，连续承包多个高热度课堂。</div>
+</article>
+<article class="role-card">
+<div class="role-head">
+<div class="avatar role-avatar" style="background-color: #355ed7;">
+<img src="http://wx.qlogo.cn/mmhead/ver_1/42Ltjr6RicwdtFpCKg0P119icuLUbu03NsNq1LtAtRaoib1kiciamltHyAgpgTcr9yvNPMxibulk9Xez0EIWpIWzpQShEBSBjpiblzaLRYoNRiaHOIwV5dGj38ZmksUKnnjjQR1m/132" alt="胡友冬头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">胡</span>
+</div>
+<div>
+<div class="role-name">胡友冬</div>
+<div class="role-title">咖胶味觉否决委员</div>
+</div>
+</div>
+<div class="role-reason">用“太难吃了，想当场回家”为本期补给讨论给出最直观结论。</div>
+</article>
+<article class="role-card">
+<div class="role-head">
+<div class="avatar role-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/BBAlJw59d4HpNibdxK8u46Licg4taECMh18HhvhftZLN4cGNmBzPlvBjRAW81PpO8lPY04YPic1Vo9BdsTMTLp9MuLqDiawrIBbBwpHWduAfJ2pOmGHh5OdWwMSFbv3GmeWh/132" alt="格日勒图ᠭᠡᠷᠡᠯᠲᠦ头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">格</span>
+</div>
+<div>
+<div class="role-name">格日勒图ᠭᠡᠷᠡᠯᠲᠦ</div>
+<div class="role-title">坐垫漏电与路书兼容性测试员</div>
+</div>
+</div>
+<div class="role-reason">一边追查长爬后的异常体感，一边补充 OB、Strava 和装备信息。</div>
+</article>
+<article class="role-card">
+<div class="role-head">
+<div class="avatar role-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/tsftGv4ibwSK7KqKoubdRc0rLXkOoyypvFHQvVh6JeCZvKTeuJV2dNamKuKpH43vzPogXGLXUOWoEHJYcPrEsELF9fwWS1qiaHLX8hmQLibdr3Znbqm4j9X7UKzFPeK5daW/132" alt="Mr.Failure🎭头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">M</span>
+</div>
+<div>
+<div class="role-name">Mr.Failure🎭</div>
+<div class="role-title">雨云开盘前一分钟止损员</div>
+</div>
+</div>
+<div class="role-reason">石景山暴雨前反复权衡是否出门，最终用一分钟躲过最直接的一轮浇灌。</div>
+</article>
+<article class="role-card">
+<div class="role-head">
+<div class="avatar role-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/qtibicgY9P5o3Pqibd50d7fwkNH7bsS4Gic7gVkWaBUicT2newMmZU5SuUNhDhOah4icQH7had9qmZQq6ydP4eIdzeGgEcnEnsQl5ECPJDWuSbNd1icCy32a00Bb2JMZaxmic0PK/132" alt="雪风yukikaze kou头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">雪</span>
+</div>
+<div>
+<div class="role-name">雪风yukikaze kou</div>
+<div class="role-title">新人群九站换乘乘客</div>
+</div>
+</div>
+<div class="role-reason">自述从新人 1 群一路混到 9 群后终于进入主群，并立即开始研究队服和车牌。</div>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-heading">
+<span class="section-no">07</span>
+<h2 class="section-title">群友实用频道</h2>
+<span class="section-note">USEFUL SIGNALS</span>
+</div>
+<div class="utility-grid">
+<div>
+<article class="resource">
+<span class="resource-type">路线工具</span>
+<h3>Strava 之外的路书组合</h3>
+<div class="resource-meta">群友工具圆桌 · 08-04 10:06—10:21 · 导航与路书</div>
+<p>本期围绕国内新路更新、热图、GPX 导出与码表导入形成了一套组合使用思路。</p>
+<ul>
+<li>Strava 热图可辅助判断是否有人走过，但国内新路底图可能更新较慢</li>
+<li>OB 可使用百度或高德相关地图数据，群友反馈修复后更好用</li>
+<li>行者可导出 GPX，黑鸟也可作为规划入口</li>
+<li>导入码表前仍应核对路线、爬升和实际通行情况</li>
+</ul>
+</article>
+<div style="height:16px;"></div>
+<article class="resource">
+<span class="resource-type">安全备忘</span>
+<h3>群友版放坡练习顺序</h3>
+<div class="resource-meta">SOD 与群友安全圆桌 · 08-05 15:02—15:20 · 放坡与走线</div>
+<p>讨论没有把下把位和压弯包装成提速技巧，而是强调通过低速、跟随和重复练习建立稳定性。</p>
+<ul>
+<li>先看视频理解基本动作和线路选择</li>
+<li>跟随走线稳定的人练习，并请对方主动降速</li>
+<li>不要在弯中临时大幅修正，进入弯道前保留余量</li>
+<li>公开道路以安全、视野和可控为优先</li>
+</ul>
+</article>
+</div>
+<div>
+<article class="qa">
+<span class="qa-label">Q</span>
+<h3>Strava 之外还能用什么做路书？</h3>
+<div class="qa-meta">我是昭昭啊 · 08-04 10:06</div>
+<div class="qa-answer">
+<strong>群友工具圆桌：</strong>可尝试 OB、行者或黑鸟。行者可导出 GPX，OB 可用于规划；Strava 热图仍适合检查骑行痕迹，但国内新路更新可能较慢。
+</div>
+</article>
+<article class="qa">
+<span class="qa-label">Q</span>
+<h3>下把位放坡该怎么开始练？</h3>
+<div class="qa-meta">贤 · 08-05 15:02</div>
+<div class="qa-answer">
+<strong>SOD：</strong>先多看视频理解走线，再跟随走线稳定的人低速练习，并请对方放慢。目标是提升安全和稳定，不是在公开道路追求更快。
+</div>
+</article>
+<article class="qa">
+<span class="qa-label">Q</span>
+<h3>碳辐条会不会特别容易断？</h3>
+<div class="qa-meta">酒醉风林弥猴 · 08-05 10:41</div>
+<div class="qa-answer">
+<strong>群友轮组圆桌：</strong>群友认为常规使用不用过度担心，但尾勾摔弯、后拨卷入或外力踩踏都可能造成断条；购买时优先考虑可靠售后和更换成本。
+</div>
+</article>
+<article class="qa">
+<span class="qa-label">Q</span>
+<h3>长距离骑行必须吃能量胶吗？</h3>
+<div class="qa-meta">群友补给圆桌 · 07-30 14:39</div>
+<div class="qa-answer">
+<strong>SOD、怠惰等：</strong>群内意见是能量胶的优势在便携、吸收和移动中补给，但骑游也可选择合适的超市食品。应结合强度、肠胃与咖啡因耐受安排，不要把单一产品当作通用答案。
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section section-white">
+<div class="section-heading">
+<span class="section-no">08</span>
+<h2 class="section-title">频道数据台</h2>
+<span class="section-note">SIGNAL METER</span>
+</div>
+<div class="analytics-grid">
+<div class="heat-panel">
+<h3 class="panel-title">近一周骑行话题热度</h3>
+<div class="heat-row">
+<div class="heat-meta">
+<span>训练方法</span>
+<span>137 条 · 32%</span>
+</div>
+<div class="heat-track">
+<div class="heat-fill heat-fill-0"
+style="width: 32%;">
+</div>
+</div>
+</div>
+<div class="heat-row">
+<div class="heat-meta">
+<span>装备设定</span>
+<span>108 条 · 25%</span>
+</div>
+<div class="heat-track">
+<div class="heat-fill heat-fill-1"
+style="width: 25%;">
+</div>
+</div>
+</div>
+<div class="heat-row">
+<div class="heat-meta">
+<span>路线路况</span>
+<span>98 条 · 23%</span>
+</div>
+<div class="heat-track">
+<div class="heat-fill heat-fill-2"
+style="width: 23%;">
+</div>
+</div>
+</div>
+<div class="heat-row">
+<div class="heat-meta">
+<span>安全恢复</span>
+<span>56 条 · 13%</span>
+</div>
+<div class="heat-track">
+<div class="heat-fill heat-fill-3"
+style="width: 13%;">
+</div>
+</div>
+</div>
+<div class="heat-row">
+<div class="heat-meta">
+<span>赛事骑游</span>
+<span>28 条 · 7%</span>
+</div>
+<div class="heat-track">
+<div class="heat-fill heat-fill-4"
+style="width: 7%;">
+</div>
+</div>
+</div>
+</div>
+<div class="rank-panel">
+<h3 class="panel-title">本期话唠榜前十名</h3>
+<div class="rank-list">
+<div class="rank-item">
+<span class="rank-number">1</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/z1UUMxyTpoyQ8V8CZCokdUnh3PD6xsRPs6hT6sqlr2W02z3iaCwLfiaIj9tDN5ibiacIzbWCLiaKic4sJukibYBYMjOeg/132" alt="SOD头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">S</span>
+</div>
+<div>
+<div class="rank-name">SOD</div>
+<div class="rank-tags">补给答疑 · 安全课堂 · 全频接梗</div>
+</div>
+<span class="rank-count">391 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">2</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="http://wx.qlogo.cn/mmhead/ver_1/42Ltjr6RicwdtFpCKg0P119icuLUbu03NsNq1LtAtRaoib1kiciamltHyAgpgTcr9yvNPMxibulk9Xez0EIWpIWzpQShEBSBjpiblzaLRYoNRiaHOIwV5dGj38ZmksUKnnjjQR1m/132" alt="胡友冬头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">胡</span>
+</div>
+<div>
+<div class="rank-name">胡友冬</div>
+<div class="rank-tags">约骑跟进 · 装备围观 · 味觉直评</div>
+</div>
+<span class="rank-count">269 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">3</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/BBAlJw59d4HpNibdxK8u46Licg4taECMh18HhvhftZLN4cGNmBzPlvBjRAW81PpO8lPY04YPic1Vo9BdsTMTLp9MuLqDiawrIBbBwpHWduAfJ2pOmGHh5OdWwMSFbv3GmeWh/132" alt="格日勒图ᠭᠡᠷᠡᠯᠲᠦ头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">格</span>
+</div>
+<div>
+<div class="rank-name">格日勒图ᠭᠡᠷᠡᠯᠲᠦ</div>
+<div class="rank-tags">设定追问 · 工具补充 · 冷梗续航</div>
+</div>
+<span class="rank-count">263 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">4</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/mbQ16o3QOYELia4n9FkvP1WiaT8KiahpyCrtp7PdPMGyYQgOc9Mpl3MyhFP0akKAHgYqzmPy1ia9icPj3UfWPv5A8iaXsaL0rsRa2sibh8xR1CjqKr1DorKgZffTjM0icPVP7h4ica7OkJNkxkTk4dEVAaElo0A/132" alt="考拉7😈头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">考</span>
+</div>
+<div>
+<div class="rank-name">考拉7😈</div>
+<div class="rank-tags">羽毛球 · 波波 · 战备路</div>
+</div>
+<span class="rank-count">256 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">5</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/DPk6tbO6e7frxzibNEvddaLUaryQzcR3d9tmMv2ZyYpk97S4PvCyWRQopIbNrQ4icyvvf8tmLwWXRa07DyyLjTEA0Okss007ENJSe5n1pzbYY/132" alt="no-zero-sum game头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">n</span>
+</div>
+<div>
+<div class="rank-name">no-zero-sum game</div>
+<div class="rank-tags">试试 · 早起 · 帮主</div>
+</div>
+<span class="rank-count">201 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">6</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/MEZVKkRxjCXpxp1Hj0vX0N7dV8s8GAFaiaauyG1vG8ic4TAXuBeGsAKLdiaedct65t3sxezGfnfNiagXxZezWpBfyu2QMlcW9DhtXfmUJMIVqic0eEFSQcAdX28xkROLV1ZD25wUlIocEdkmljJgrlkQ0icw/132" alt="佛系少女头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">佛</span>
+</div>
+<div>
+<div class="rank-name">佛系少女</div>
+<div class="rank-tags">正常一口 · 口一个宝 · 宝贝叫</div>
+</div>
+<span class="rank-count">161 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">7</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/wI3Nr62y0K6u9njiavzjQsKjic8wiaYACOelksGgNMuibHibO4uHLVOKkX3dtKI6XXfWVoovldbpwicp6t7ThFgxUADn7s04lqTK970YPftCfqmRuYDVghJsGT8wDW6th4icvsE/132" alt="我是昭昭啊头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">我</span>
+</div>
+<div>
+<div class="rank-name">我是昭昭啊</div>
+<div class="rank-tags">strava · 问题 · 迈金</div>
+</div>
+<span class="rank-count">143 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">8</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/g7SkKFILTgdiaHAe0EdPj2EXK0ZNw1Vic8r9tuWPPg3vZZyDfn430zFqzqo5ibR4hkZFBZlaaGRN5Wy9icUFS97ick7WnNLruRkSDQIqgcJknBIqVAODf9b04xTicybMOsAh6I/132" alt="贤头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">贤</span>
+</div>
+<div>
+<div class="rank-name">贤</div>
+<div class="rank-tags">assos · 赛段 · strava</div>
+</div>
+<span class="rank-count">138 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">9</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/NrUuflT2icIkIGLWzOsLBDPHoLzAlPmeicw9bcLB3c0VLOqM5mlSwlHNEIpAho1j0kmgdJwowgtQER1A2eyShcKLk6FPhLibNU6zk1seVfiata20FAFLGYKaHm6ar2J9iaJyTJzdRXJKicGPN9XHtGW2F89A/132" alt="明明头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">明</span>
+</div>
+<div>
+<div class="rank-name">明明</div>
+<div class="rank-tags">打球 · 周日 · 小时</div>
+</div>
+<span class="rank-count">134 条</span>
+</div>
+<div class="rank-item">
+<span class="rank-number">10</span>
+<div class="avatar rank-avatar" style="background-color: #355ed7;">
+<img src="https://wx.qlogo.cn/mmhead/ver_1/hb4THHeibnF17eGicVSyga4w8jmXJ6W2BGicm6K9FXwnVESxliaLkOfOUibtBSJJXetNv49zKGn0Y0ia9s4mnfXgREO85AMCX0esWMnxDGVictYqkN4MibL3iaCMkEhCOwZiaE5WEEpHo5FrQdvRgHDyAAX3lvXw/132" alt="月夜枫头像" referrerpolicy="no-referrer" loading="eager"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+<span class="avatar-fallback" style="display:none;">月</span>
+</div>
+<div>
+<div class="rank-name">月夜枫</div>
+<div class="rank-tags">大哈 · hhh · 问题</div>
+</div>
+<span class="rank-count">133 条</span>
+</div>
+</div>
+<div class="owl-line">
+深夜信号来自 <strong>Hygge</strong>：
+23:37 仍在频道，留下“[呲牙]明天要是有约骑我看看能不能蹭上一圈”
+</div>
+</div>
+</div>
+</section>
+<section class="section section-sky">
+<div class="section-heading">
+<span class="section-no">09</span>
+<h2 class="section-title">本期词云</h2>
+<span class="section-note">WHAT WE SAID</span>
+</div>
+<div class="word-cloud">
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 40px; font-size: var(--cloud-size); font-weight: bold;">
+strava
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 40px; font-size: var(--cloud-size); font-weight: bold;">
+赛段
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 40px; font-size: var(--cloud-size); font-weight: bold;">
+问题
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 38px; font-size: var(--cloud-size); font-weight: bold;">
+骑车
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 38px; font-size: var(--cloud-size); font-weight: bold;">
+看看
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 36px; font-size: var(--cloud-size); font-weight: bold;">
+确实
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 30px; font-size: var(--cloud-size); font-weight: bold;">
+羽毛球
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 33px; font-size: var(--cloud-size); font-weight: bold;">
+骑行
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 33px; font-size: var(--cloud-size); font-weight: bold;">
+有人
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 32px; font-size: var(--cloud-size); font-weight: bold;">
+火哥
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 31px; font-size: var(--cloud-size); font-weight: bold;">
+试试
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+戒台寺
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 30px; font-size: var(--cloud-size); font-weight: bold;">
+有点
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 29px; font-size: var(--cloud-size); font-weight: bold;">
+多少
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 29px; font-size: var(--cloud-size); font-weight: bold;">
+体重
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 28px; font-size: var(--cloud-size); font-weight: bold;">
+打球
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+xxlb
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 27px; font-size: var(--cloud-size); font-weight: bold;">
+小时
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+队服
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+胖哥
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+活动
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+码表
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+放坡
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+大卡
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 26px; font-size: var(--cloud-size); font-weight: bold;">
+功率
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 25px; font-size: var(--cloud-size); font-weight: bold;">
+迈金
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 25px; font-size: var(--cloud-size); font-weight: bold;">
+单飞
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 22px; font-size: var(--cloud-size); font-weight: normal;">
+大明哥
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 24px; font-size: var(--cloud-size); font-weight: normal;">
+爬坡
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 24px; font-size: var(--cloud-size); font-weight: normal;">
+摇车
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 24px; font-size: var(--cloud-size); font-weight: normal;">
+今年
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+舒服
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+挺好
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+好看
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+好吃
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+喜欢
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+周日
+</span>
+<span class="cloud-word cloud-color-2"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+水平
+</span>
+<span class="cloud-word cloud-color-3"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+最近
+</span>
+<span class="cloud-word cloud-color-4"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+女骑
+</span>
+<span class="cloud-word cloud-color-0"
+style="--cloud-size: 23px; font-size: var(--cloud-size); font-weight: normal;">
+坐垫
+</span>
+<span class="cloud-word cloud-color-1"
+style="--cloud-size: 22px; font-size: var(--cloud-size); font-weight: normal;">
+风衣
+</span>
+</div>
+</section>
+<section class="section section-yellow">
+<div class="section-heading">
+<span class="section-no">10</span>
+<h2 class="section-title">下期蹲守</h2>
+<span class="section-note">STAY TUNED</span>
+</div>
+<div class="watch-list">
+<div class="watch-item">
+<span class="watch-index">NEXT 01</span>
+车队线下店承办赛事的正式报名链接与具体规则。
+</div>
+<div class="watch-item">
+<span class="watch-index">NEXT 02</span>
+报纸、怪兽、银线等队服款式能否凑齐新的 10 人开团。
+</div>
+<div class="watch-item">
+<span class="watch-index">NEXT 03</span>
+周末活动安排以及复兴门小火车是否正式返场。
+</div>
+</div>
+</section>
+<section class="closing">
+<div class="closing-label">END OF TRANSMISSION</div>
+<div class="closing-copy">这里是蜗牛电台：路线要多看一眼，雨云要多等一分钟，至于下一项副业是羽毛球还是队服设计，等群里继续开麦。</div>
+</section>
+<footer>
+<p>蜗牛电台 · 数据源：🐌北京蜗牛车队🐌群聊记录</p>
+<p>放送区间：2026-07-30 10:43 至 2026-08-06 10:43</p>
+<p class="disclaimer">
+本节目依据群聊公开讨论整理。骑行路线、装备、健康与安全信息请结合现场情况和专业意见判断；如有内容不当，请联系管理员处理。
+</p>
+</footer>
+</main>
+</body>
+</html>
