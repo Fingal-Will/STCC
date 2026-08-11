@@ -1499,9 +1499,7 @@
 
             .latest-band {
                 grid-template-columns: 1fr;
-                align-content: space-between;
                 gap: 18px;
-                min-height: calc(100svh - 132px);
                 padding: 22px 18px;
             }
 
@@ -2174,7 +2172,6 @@
             }
 
             .latest-band {
-                min-height: calc(100svh - 126px);
                 padding: 26px 20px 22px;
             }
 
