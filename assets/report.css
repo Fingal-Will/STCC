@@ -790,11 +790,13 @@
         }
 
         .checkin-time {
-            flex: 0 0 auto;
+            display: block;
+            margin-top: 2px;
             color: var(--wx-text-meta);
             font-size: 11px;
             font-variant-numeric: tabular-nums;
-            white-space: nowrap;
+            line-height: 1.45;
+            white-space: normal;
         }
 
         .checkin-activity {
