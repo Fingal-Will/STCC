@@ -1097,84 +1097,6 @@
             line-height: 1.5;
         }
 
-        /* 问答 */
-        .qa-box {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .qa-icon {
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .icon-q {
-            background: var(--wx-link);
-        }
-
-        .icon-a {
-            background: var(--wx-green);
-        }
-
-        .qa-meta {
-            font-size: 12px;
-            color: #444;
-            margin-bottom: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .qa-person {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .qa-avatar {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            font-size: 10px;
-        }
-
-        .best-badge {
-            background: #FFC300;
-            color: #fff;
-            padding: 1px 5px;
-            border-radius: 3px;
-            font-size: 10px;
-        }
-
-        .qa-text {
-            font-size: 15px;
-            color: #333;
-        }
-
-        .qa-tags {
-            margin-top: 6px;
-        }
-
-        .qa-tag {
-            font-size: 11px;
-            background: #EEE;
-            color: #666;
-            padding: 2px 6px;
-            border-radius: 3px;
-            margin-right: 4px;
-        }
-
         /* 数据可视化 */
         .analytics-container {
             display: flex;
@@ -2150,7 +2072,6 @@
         .knowledge-meta,
         .focus-pill,
         .metric-pill,
-        .qa-tag,
         .tag-trait,
         .tag-word,
         .rank-chart-badge {
@@ -2245,10 +2166,6 @@
             border: 0;
             border-radius: 0;
             background: var(--wx-orange);
-        }
-
-        .qa-icon {
-            border-radius: 4px;
         }
 
         .meta-dashboard {
